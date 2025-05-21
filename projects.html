@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Sai Kiran Billa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="https://illinois.edu/assets/img/favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#13294B">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo signature-logo">SKB</div>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#resume">Resume</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="projects-header">
+            <div class="container">
+                <h1 class="section-title">Projects</h1>
+                <p class="section-subtitle">A collection of my work across AI, machine learning, data engineering, business intelligence, and full-stack development.</p>
+                
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ai">AI & LLM</button>
+                    <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                    <button class="filter-btn" data-filter="data">Data Engineering</button>
+                    <button class="filter-btn" data-filter="bi">BI & Dashboards</button>
+                    <button class="filter-btn" data-filter="web">Full-Stack</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI & LLM Projects -->
+        <section id="ai-projects" class="project-section" data-category="ai">
+            <div class="container">
+                <div class="role-header">
+                    <div class="role-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="role-title">
+                        <h2>AI & LLM Projects</h2>
+                        <p>Exploring large language models, vector search, and AI agents using LangChain, OpenAI, and RAG pipelines.</p>
+                    </div>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- PrepMe Project -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/prepme-interview-platform.jpg" alt="PrepMe – AI-Powered Interview Platform">
+                        </div>
+                        <h3>PrepMe – AI-Powered Interview Platform</h3>
+                        <p>Built a responsive web platform using Next.js, Vapi AI, and Gemini that simulates real-time mock interviews with voice agents and provides instant feedback and transcripts.</p>
+                        <div class="project-tags">
+                            <span>Next.js</span>
+                            <span>Vapi AI</span>
+                            <span>Gemini</span>
+                            <span>Firebase</span>
+                            <span>TailwindCSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">Live Demo</a>
+                            <a href="#" class="btn small secondary">GitHub</a>
+                        </div>
+                    </div>
+                    
+                    <!-- SupportBot Project -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/supportbot-chatbot.jpg" alt="SupportBot – AI-Powered Customer Assistant">
+                        </div>
+                        <h3>SupportBot – AI-Powered Customer Assistant</h3>
+                        <p>Developed a multi-agent chatbot using LangFlow and RAG, capable of resolving order tracking, FAQs, and product queries with 92% automation accuracy.</p>
+                        <div class="project-tags">
+                            <span>LangFlow</span>
+                            <span>OpenAI</span>
+                            <span>RAG</span>
+                            <span>Flask</span>
+                            <span>Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small secondary">GitHub</a>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Agent Benchmarking Tool -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/agent-benchmarking-tool.jpg" alt="AI Agent Benchmarking Tool">
+                        </div>
+                        <h3>AI Agent Benchmarking Tool</h3>
+                        <p>Compared performance of CrewAI, Phidata, and Autogen for financial data extraction. Benchmarked agents based on latency, precision, and cost using real stock data from YFinance.</p>
+                        <div class="project-tags">
+                            <span>Phidata</span>
+                            <span>CrewAI</span>
+                            <span>Autogen</span>
+                            <span>LangChain</span>
+                            <span>SQLite</span>
+                            <span>YFinance</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Machine Learning Projects -->
+        <section id="ml-projects" class="project-section" data-category="ml">
+            <div class="container">
+                <div class="role-header">
+                    <div class="role-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="role-title">
+                        <h2>Machine Learning Projects</h2>
+                        <p>Classical ML models built with scikit-learn, XGBoost, and evaluation pipelines for structured datasets.</p>
+                    </div>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Credit Card Approval Prediction -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/credit-card-prediction.jpg" alt="Credit Card Approval Prediction">
+                        </div>
+                        <h3>Credit Card Approval Prediction</h3>
+                        <p>Built classification models including Logistic Regression and Random Forest to predict approvals based on applicant data. Achieved up to 96% accuracy.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>scikit-learn</span>
+                            <span>pandas</span>
+                            <span>GridSearchCV</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">Notebook</a>
+                        </div>
+                    </div>
+                    
+                    <!-- California Wildfire Risk Prediction -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/wildfire-prediction.jpg" alt="California Wildfire Risk Prediction">
+                        </div>
+                        <h3>California Wildfire Risk Prediction</h3>
+                        <p>Used weather and vegetation data to train Random Forest and XGBoost models in R. Reached 89% accuracy for predicting high-risk zones.</p>
+                        <div class="project-tags">
+                            <span>R</span>
+                            <span>XGBoost</span>
+                            <span>Random Forest</span>
+                            <span>Data Wrangling</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Engineering Projects -->
+        <section id="data-projects" class="project-section" data-category="data">
+            <div class="container">
+                <div class="role-header">
+                    <div class="role-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="role-title">
+                        <h2>Data Engineering Projects</h2>
+                        <p>ETL pipelines, PySpark jobs, Snowflake workflows, and data orchestration with tools like Airflow.</p>
+                    </div>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Spotify Listening ETL Pipeline -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/spotify-etl-pipeline.jpg" alt="Spotify Listening ETL Pipeline">
+                        </div>
+                        <h3>Spotify Listening ETL Pipeline</h3>
+                        <p>Pulled and processed over 10K+ streaming records from Spotify API. Modeled genre trends, time-based clusters, and visualized usage via Power BI.</p>
+                        <div class="project-tags">
+                            <span>Spotify API</span>
+                            <span>Python</span>
+                            <span>AWS S3</span>
+                            <span>PostgreSQL</span>
+                            <span>Power BI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small secondary">GitHub</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Customer Data Lakehouse Pipeline -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/data-lakehouse-pipeline.jpg" alt="Customer Data Lakehouse Pipeline">
+                        </div>
+                        <h3>Customer Data Lakehouse Pipeline</h3>
+                        <p>Engineered a modular PySpark pipeline for clickstream logs, storing outputs in Delta Lake on AWS S3 and enabling low-latency Spark SQL queries.</p>
+                        <div class="project-tags">
+                            <span>PySpark</span>
+                            <span>Delta Lake</span>
+                            <span>AWS S3</span>
+                            <span>SQL</span>
+                            <span>GitHub Actions</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small secondary">GitHub</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Logistics & Fulfillment Data Pipeline -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/logistics-pipeline.jpg" alt="Logistics & Fulfillment Data Pipeline">
+                        </div>
+                        <h3>Logistics & Fulfillment Data Pipeline</h3>
+                        <p>Built an ETL pipeline to clean and load simulated retail logistics data into Redshift, optimizing dashboard latency by 40%.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>SQL</span>
+                            <span>AWS Redshift</span>
+                            <span>Data Modeling</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BI & Dashboard Projects -->
+        <section id="bi-projects" class="project-section" data-category="bi">
+            <div class="container">
+                <div class="role-header">
+                    <div class="role-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="role-title">
+                        <h2>Business Intelligence & Dashboards</h2>
+                        <p>Dashboards built in Tableau & Power BI, SQL-based KPIs, and interactive reporting solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- AI Stocks Performance Dashboard -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/ai-stocks-dashboard.jpg" alt="AI Stocks Performance Dashboard">
+                        </div>
+                        <h3>AI Stocks Performance Dashboard</h3>
+                        <p>Built an automated ETL system to pull data from Yahoo Finance API, store results in S3, and visualize stock trends in Tableau.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Yahoo Finance API</span>
+                            <span>AWS S3</span>
+                            <span>Tableau</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">View Dashboard</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Marketing Campaign Analysis Dashboard -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/marketing-campaign-dashboard.jpg" alt="Marketing Campaign Analysis Dashboard">
+                        </div>
+                        <h3>Marketing Campaign Analysis Dashboard</h3>
+                        <p>Analyzed campaign effectiveness using SQL and Excel, segmented user behavior, and visualized KPIs across regions and channels in Power BI.</p>
+                        <div class="project-tags">
+                            <span>SQL</span>
+                            <span>Power BI</span>
+                            <span>Excel</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small secondary">Case Study</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Operational Efficiency Dashboard -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/operational-dashboard.jpg" alt="Operational Efficiency Dashboard (Retail)">
+                        </div>
+                        <h3>Operational Efficiency Dashboard (Retail)</h3>
+                        <p>Used Power BI to track revenue, inventory turnover, and staffing metrics across multiple retail branches.</p>
+                        <div class="project-tags">
+                            <span>SQL</span>
+                            <span>Excel</span>
+                            <span>Power BI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">Dashboard</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Yelp Review Analytics -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projects/yelp-analytics.jpg" alt="Yelp Review Analytics">
+                        </div>
+                        <h3>Yelp Review Analytics</h3>
+                        <p>Processed over 7M reviews, loaded data into Snowflake, and built dashboards to identify sentiment trends and top-rated businesses.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Snowflake</span>
+                            <span>SQL</span>
+                            <span>Tableau</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <p>Vibe-Coded with <span class="heart-emoji">❤️</span> by Sai Kiran Billa • 2025</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/saikiranbilla" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/_saikiranbilla" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="projects.js"></script>
+</body>
+</html> 

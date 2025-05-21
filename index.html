@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Kiran Billa Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="https://illinois.edu/assets/img/favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#13294B">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo signature-logo">SKB</div>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="hero">
+            <div class="hero-animations">
+                <!-- Data waves animation -->
+                <svg class="data-wave" viewBox="0 0 1200 300" preserveAspectRatio="none">
+                    <path class="wave-path wave-path-1" d="M0,150 C300,50 600,220 1200,100" />
+                    <path class="wave-path wave-path-2" d="M0,100 C400,180 700,80 1200,160" />
+                    <path class="wave-path wave-path-3" d="M0,200 C200,120 500,200 1200,120" />
+                    <path class="wave-path wave-path-4" d="M0,220 C500,150 900,190 1200,80" />
+                </svg>
+
+                <!-- Node network visualization -->
+                <div class="node-network">
+                    <div class="data-node data-node-1"></div>
+                    <div class="data-node data-node-2"></div>
+                    <div class="data-node data-node-3"></div>
+                    <div class="data-node data-node-4"></div>
+                    <div class="data-node data-node-5"></div>
+
+                    <div class="connection-line connection-line-1"></div>
+                    <div class="connection-line connection-line-2"></div>
+                    <div class="connection-line connection-line-3"></div>
+                </div>
+
+                <!-- ETL Pipeline visualization -->
+                <div class="pipeline-flow">
+                    <div class="pipeline-step pipeline-step-1"></div>
+                    <div class="pipeline-arrow pipeline-arrow-1"></div>
+                    <div class="pipeline-step pipeline-step-2"></div>
+                    <div class="pipeline-arrow pipeline-arrow-2"></div>
+                    <div class="pipeline-step pipeline-step-3"></div>
+                </div>
+                
+                <!-- Enhanced floating code snippets -->
+                <div class="code-snippets">
+                    <div class="code-line">import pandas as pd</div>
+                    <div class="code-line">df = pd.merge(users, transactions, on='user_id')</div>
+                    <div class="code-line">model = tf.keras.Sequential([Dense(128, activation='relu')])</div>
+                    <div class="code-line">embeddings = model.encode(documents, normalize=True)</div>
+                    <div class="code-line">SELECT AVG(revenue) FROM customers GROUP BY segment</div>
+                    <div class="code-line">agent = Agent(tools=[search_tool, calculator_tool])</div>
+                </div>
+                
+                <!-- Circuit grid background is kept -->
+                <div class="circuit-grid"></div>
+                
+                <!-- Remove the graph animation and circuit elements as they're replaced -->
+            </div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-image-container">
+                        <div class="hero-image">
+                            <img src="files/new-hero-Photoroom.png" alt="Hero Image">
+                        </div>
+                    </div>
+                    <div class="hero-text-container">
+                        <h1>Hi, I'm <span class="highlight">Sai Kiran Billa</span></h1>
+                        <h2>Data & AI</h2>
+                        <p><span class="typewriter"></span></p>
+                        <span class="tech-phrase">Building with data</span>
+                        <div class="cta-buttons">
+                            <a href="projects.html" class="btn primary">View Projects</a>
+                            <a href="#contact" class="btn secondary">Contact Me</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/saikiranbilla" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/_saikiranbilla" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm Sai Kiran Billa, a master's student in Information Management at UIUC and a Data & Segmentation Analyst at the University of Illinois Foundation. My work lives where tidy code meets clear insight: I shape data with Python and SQL, surface stories in Tableau, and build intuitive web experiences with React and AWS. Recently, my focus has expanded to AI-driven solutions, designing lightweight agents and LLM workflows that turn complex questions into fast, reliable answers.</p>
+                        <p>Away from the keyboard I recharge with cricket, a game whose patience and strategy mirror the way I approach tough data problems. Clean design, steady learning, and thoughtful collaboration guide everything I build, and I'm always eager to explore what thoughtful technology can do next.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="files/about-me.jpg" alt="About Me">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume">
+            <div class="container">
+                <h2 class="section-title">Resume</h2>
+                
+                <div class="resume-tabs">
+                    <button class="tab-btn active" data-target="education" id="education-tab">
+                        <i class="fas fa-graduation-cap"></i> Education
+                    </button>
+                    <button class="tab-btn" data-target="experience" id="experience-tab">
+                        <i class="fas fa-briefcase"></i> Experience
+                    </button>
+                    <button class="tab-btn" data-target="achievements" id="achievements-tab">
+                        <i class="fas fa-trophy"></i> Achievements
+                    </button>
+                </div>
+                
+                <div class="resume-content">
+                    <!-- Education Tab Content -->
+                    <div class="tab-content active" id="education">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2024 - 2026</div>
+                                <div class="timeline-content">
+                                    <div class="education-header">
+                                        <div>
+                                            <h3>Master of Science in Information Management</h3>
+                                            <h4>University of Illinois at Urbana-Champaign</h4>
+                                        </div>
+                                    </div>
+                                    <p>Graduate student focusing on data engineering, business intelligence, and AI-driven applications. Current GPA 4.0. Coursework includes Data Warehousing, Machine Learning, Database Design, and Statistical Learning.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2020 - 2024</div>
+                                <div class="timeline-content">
+                                    <div class="education-header">
+                                        <div>
+                                            <h3>Bachelor of Technology in Computer Science & Business System</h3>
+                                            <h4>Gokaraju Rangaraju Institute of Engineering & Technology (GRIET)</h4>
+                                        </div>
+                                    </div>
+                                    <p>Graduated with a CGPA 9.2/10. Led marketing for CSI-GRIET and served as Blockchain Lead for Google DSC. Built capstone projects in data analytics and cloud computing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Tab Content -->
+                    <div class="tab-content" id="experience">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">May 2025 - Present</div>
+                                <div class="timeline-content">
+                                    <h3>Data & Segmentation Analyst</h3>
+                                    <h4>University of Illinois Foundation</h4>
+                                    <p>Turn raw alumni and donor records into actionable segments by merging data sources in SQL, engineering behavioral features with Python, and publishing live Tableau dashboards that help advancement teams personalize outreach and boost giving.</p>
+                                    <div class="timeline-tags">
+                                        <span>Python</span>
+                                        <span>SQL</span>
+                                        <span>Tableau</span>
+                                        <span>Snowflake</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Dec 2023 - May 2024</div>
+                                <div class="timeline-content">
+                                    <h3>Software Developer – Capstone Project</h3>
+                                    <h4>GRIET</h4>
+                                    <p>Built a full-stack platform enabling students to collaborate, share notes, and host video sessions. Integrated React, Node.js, WebRTC, and a RAG-based chatbot for smart Q&A and document retrieval.</p>
+                                    <div class="timeline-tags">
+                                        <span>React</span>
+                                        <span>Node.js</span>
+                                        <span>WebRTC</span>
+                                        <span>LangChain</span>
+                                        <span>SQL</span>
+                                        <span>RAG</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Sep 2021 - May 2023</div>
+                                <div class="timeline-content">
+                                    <h3>Marketing Lead</h3>
+                                    <h4>Computer Society of India – GRIET</h4>
+                                    <p>Led a creative team to plan events and grow the club's digital presence. Increased engagement 3× through Canva-based campaigns, reels, and collaboration with sponsors and other student chapters.</p>
+                                    <div class="timeline-tags">
+                                        <span>Leadership</span>
+                                        <span>Content Strategy</span>
+                                        <span>Social Media</span>
+                                        <span>Canva</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Achievements Tab Content -->
+                    <div class="tab-content" id="achievements">
+                        <div class="achievements-grid">
+                            <div class="achievement-item">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div class="achievement-content">
+                                    <h3>Oracle AI Certification</h3>
+                                    <p>Earned certification in machine learning, neural networks, and ethical AI design.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="achievement-item">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div class="achievement-content">
+                                    <h3>Web3 Hackathon Winner</h3>
+                                    <p>Won first place for a Soulbound NFT platform for credential verification and transparency.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="achievement-item">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="achievement-content">
+                                    <h3>Smart India Hackathon Finalist</h3>
+                                    <p>Finalist for blockchain-based grievance system in India's largest student hackathon.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="achievement-item">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-link"></i>
+                                </div>
+                                <div class="achievement-content">
+                                    <h3>Blockchain Lead – GDSC</h3>
+                                    <p>Trained 200+ students on Ethereum, Solidity, and smart contracts development.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resume-download">
+                    <a href="#" class="btn primary" download>
+                        <i class="fas fa-download"></i> Download Full Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <div class="skill-heading">
+                            <i class="fas fa-brain"></i>
+                            <h3>AI / LLM Engineering</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-link-slash"></i> LangChain</li>
+                            <li><i class="fas fa-robot"></i> OpenAI GPT-4 API</li>
+                            <li><i class="fas fa-database"></i> Vector search (FAISS / Pinecone)</li>
+                            <li><i class="fas fa-smile"></i> Hugging Face Transformers</li>
+                            <li><i class="fab fa-python"></i> PyTorch</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-heading">
+                            <i class="fas fa-database"></i>
+                            <h3>Data Engineering</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><i class="fab fa-python"></i> Python (PySpark & pandas)</li>
+                            <li><i class="fas fa-table"></i> Advanced SQL</li>
+                            <li><i class="far fa-snowflake"></i> Snowflake</li>
+                            <li><i class="fab fa-aws"></i> AWS (S3, Redshift)</li>
+                            <li><i class="fas fa-wind"></i> Apache Airflow</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-heading">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>Full-Stack Engineering</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><i class="fab fa-react"></i> React + Next.js</li>
+                            <li><i class="fab fa-node-js"></i> Node.js / Express</li>
+                            <li><i class="fab fa-python"></i> Flask REST APIs</li>
+                            <li><i class="fab fa-js"></i> TypeScript</li>
+                            <li><i class="fab fa-css3-alt"></i> Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-heading">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>BI & Analytics</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-chart-line"></i> Tableau</li>
+                            <li><i class="fas fa-chart-pie"></i> Power BI</li>
+                            <li><i class="fas fa-network-wired"></i> scikit-learn</li>
+                            <li><i class="fas fa-table"></i> pandas</li>
+                            <li><i class="fas fa-database"></i> Data-storytelling with SQL</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-text">
+                        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>sbilla2@illinois.edu</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Urbana-Champaign, Illinois</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <p>Vibe-Coded with <span class="heart-emoji">❤️</span> by Sai Kiran Billa • 2025</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/saikiranbilla" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/_saikiranbilla" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
