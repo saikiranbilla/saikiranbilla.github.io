@@ -27,6 +27,68 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(el);
     });
 
+    // --- Highlights Modal ---
+    var highlightData = {
+        leadership: {
+            title: 'Leadership',
+            items: [
+                'AI Strategy Consultant @ BIG.',
+                'Led 5-person team architecting multi-agent systems.',
+                'Authored AI governance frameworks.'
+            ]
+        },
+        impact: {
+            title: 'Impact',
+            items: [
+                'Optimization: Slashed SQL latency by 40%.',
+                'Scale: Orchestrated 8 autonomous agents.',
+                'Safety: 99% moderation accuracy.'
+            ]
+        },
+        certs: {
+            title: 'Certs',
+            items: [
+                'Oracle Cloud GenAI Professional (2024).',
+                'AWS Cloud Practitioner.',
+                'Focus: RAG & LLM Fine-Tuning.'
+            ]
+        }
+    };
+
+    var highlightOverlay = document.getElementById('highlightOverlay');
+    var highlightTitle = document.getElementById('highlightTitle');
+    var highlightList = document.getElementById('highlightList');
+    var highlightCloseBtn = document.getElementById('highlightClose');
+
+    document.querySelectorAll('.highlight-item').forEach(function (item) {
+        item.addEventListener('click', function () {
+            var key = this.getAttribute('data-highlight');
+            var data = highlightData[key];
+            if (!data) return;
+            highlightTitle.textContent = data.title;
+            highlightList.innerHTML = data.items.map(function (t) {
+                return '<li>' + t + '</li>';
+            }).join('');
+            highlightOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeHighlight() {
+        highlightOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    highlightCloseBtn.addEventListener('click', closeHighlight);
+    highlightOverlay.addEventListener('click', function (e) {
+        if (e.target === highlightOverlay) closeHighlight();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && highlightOverlay.classList.contains('active')) {
+            closeHighlight();
+        }
+    });
+
     // --- Story Viewer ---
     var storyOverlay = document.getElementById('storyOverlay');
     var profilePic = document.getElementById('profilePic');

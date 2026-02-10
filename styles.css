@@ -3,10 +3,12 @@
    =========================================== */
 :root {
     --bg: #111111;
+    --app-bg: #111111;
     --bg-hover: #191919;
     --text: #EDEDED;
     --text-muted: #A1A1AA;
     --border: #252525;
+    --divider-color: #262626;
     --font-serif: 'Instrument Serif', serif;
     --font-sans: 'Inter', sans-serif;
 }
@@ -50,16 +52,31 @@ strong {
 }
 
 /* ===========================================
-   Layout
+   App Container — Central Column
    =========================================== */
-.container {
-    max-width: 720px;
+.app-container {
+    max-width: 680px;
     margin: 0 auto;
-    padding: 0 24px;
+    border-left: 1px solid var(--divider-color);
+    border-right: 1px solid var(--divider-color);
+    min-height: 100vh;
 }
 
-.section {
-    padding: 100px 0;
+/* ===========================================
+   Feed Divider
+   =========================================== */
+.feed-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--divider-color);
+}
+
+/* ===========================================
+   Feed Sections — Compact Padding
+   =========================================== */
+.feed-section {
+    padding: 1.5rem;
+    margin: 0;
 }
 
 /* ===========================================
@@ -81,7 +98,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem 2rem;
-    max-width: 720px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
@@ -143,18 +160,15 @@ header {
 }
 
 /* ===========================================
-   Hero — Profile Layout (Left-Right)
+   Profile Header — Centered Column
    =========================================== */
-.hero {
-    padding: 140px 0 80px;
-    background: var(--bg);
-}
-
-.hero-profile {
+.profile-header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    gap: 2.5rem;
+    text-align: center;
+    padding: 5rem 1.5rem 1.5rem;
+    margin: 0;
 }
 
 /* Profile picture + gradient ring */
@@ -163,11 +177,12 @@ header {
     flex-shrink: 0;
     opacity: 0;
     animation: profileSettle 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards;
+    margin-bottom: 1rem;
 }
 
 .profile-ring {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     padding: 3px;
     background: linear-gradient(135deg, #E84A27, #13294B);
@@ -198,32 +213,26 @@ header {
     50%      { box-shadow: 0 0 0 10px rgba(232, 74, 39, 0); }
 }
 
-/* Right side — bio text */
-.profile-info {
-    display: flex;
-    flex-direction: column;
-}
-
 .profile-name {
     font-family: var(--font-serif);
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
     color: var(--text);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     letter-spacing: -0.02em;
 }
 
 .profile-subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-muted);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .profile-bio {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #888;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     line-height: 1.6;
 }
 
@@ -231,13 +240,15 @@ header {
 .profile-icons {
     display: flex;
     gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
 }
 
 .profile-icons a {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 22px;
     color: var(--text);
     opacity: 0.7;
     transition: opacity 0.2s ease, transform 0.2s ease;
@@ -246,6 +257,135 @@ header {
 .profile-icons a:hover {
     opacity: 1;
     transform: scale(1.1);
+}
+
+/* ===========================================
+   Instagram Highlights — Story Ring
+   =========================================== */
+.highlight-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Outer Ring + Gap */
+.story-ring {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    padding: 3px;
+    background-clip: content-box;
+    background-color: #1a1a1a;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.story-ring:hover {
+    border-color: #888;
+    transform: scale(1.05);
+}
+
+/* Icon inside ring */
+.story-icon {
+    width: 18px;
+    height: 18px;
+    color: #ededed;
+    stroke-width: 1.5px;
+}
+
+.highlight-label {
+    font-size: 11px;
+    color: #888;
+    margin-top: 6px;
+    font-family: var(--font-sans);
+    font-weight: 400;
+}
+
+/* Highlights Modal */
+.highlight-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.highlight-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.highlight-modal {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    padding: 3rem 2.5rem;
+    text-align: left;
+}
+
+.highlight-modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    line-height: 1;
+}
+
+.highlight-modal-close:hover {
+    opacity: 1;
+}
+
+.highlight-modal-title {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.highlight-modal-list {
+    list-style: disc;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.highlight-modal-list li {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    color: #ccc;
+    line-height: 1.65;
 }
 
 /* ===========================================
@@ -385,16 +525,16 @@ header {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-muted);
-    margin-bottom: 48px;
+    margin-bottom: 1.5rem;
 }
 
 /* ===========================================
-   Card Grid — Swiss Grid Cards
+   Card Grid — Single Column Feed
    =========================================== */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 16px;
 }
 
 .card {
@@ -402,18 +542,18 @@ header {
     background: var(--bg);
     border: 1px solid #333;
     border-radius: 14px;
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     overflow: hidden;
     transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     border-color: #fff;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Accent color blob */
@@ -441,13 +581,13 @@ header {
 .card-title {
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     color: var(--text);
     letter-spacing: -0.02em;
 }
 
 .card-desc {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #CCC;
     line-height: 1.6;
 }
@@ -472,10 +612,10 @@ header {
 .card-cta {
     display: inline-block;
     margin-top: auto;
-    padding: 10px 20px;
+    padding: 8px 16px;
     background: #EDEDED;
     color: #000;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     border-radius: 8px;
     text-align: center;
@@ -494,11 +634,11 @@ header {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 16px;
 }
 
 .skill-bucket {
-    padding: 1.5rem;
+    padding: 1.25rem;
     border: 1px solid var(--border);
     border-radius: 14px;
 }
@@ -510,7 +650,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-muted);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .pill-cluster {
@@ -522,18 +662,18 @@ header {
 .tech-pill {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 0.5rem 1rem;
+    gap: 6px;
+    padding: 0.4rem 0.8rem;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid #333;
     border-radius: 8px;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     color: var(--text);
     transition: border-color 0.2s ease;
 }
 
 .tech-pill i {
-    font-size: 16px;
+    font-size: 14px;
     filter: grayscale(100%);
     transition: filter 0.2s ease;
 }
@@ -557,12 +697,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 28px 0;
+    padding: 20px 0;
     border-top: 1px solid var(--border);
 }
 
 .writing-title {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
 }
 
@@ -575,15 +715,15 @@ header {
 }
 
 /* ===========================================
-   Footer — Typography-First
+   Footer — Simplified
    =========================================== */
-footer {
+.app-footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 6rem 24px;
-    gap: 2rem;
+    padding: 3rem 1.5rem;
+    gap: 1.5rem;
 }
 
 /* Status line */
@@ -616,22 +756,22 @@ footer {
 .footer-headline {
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 400;
     color: var(--text);
     letter-spacing: -0.02em;
     line-height: 1.15;
-    max-width: 560px;
+    max-width: 480px;
 }
 
 /* Glass pill button */
 .glass-pill {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 0.85rem 2rem;
     background: transparent;
     border: 1px solid #333;
     border-radius: 50px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text);
     transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
@@ -652,7 +792,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 20px;
     color: #666;
     transition: color 0.2s ease, transform 0.2s ease;
 }
@@ -664,7 +804,7 @@ footer {
 
 /* Copyright */
 .copyright {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     font-size: 0.7rem;
     color: #333;
 }
@@ -718,6 +858,7 @@ footer {
         transition: none !important;
         opacity: 1 !important;
         transform: none !important;
+        filter: none !important;
     }
     .card,
     .timeline-marker,
@@ -728,116 +869,6 @@ footer {
         transition: none !important;
         opacity: 1 !important;
         transform: none !important;
-    }
-}
-
-/* ===========================================
-   Mobile — max 640px
-   =========================================== */
-@media (max-width: 640px) {
-    .container {
-        padding: 0 20px;
-    }
-
-    /* Hero profile — stack vertically on mobile */
-    .hero {
-        padding: 110px 0 60px;
-    }
-
-    .hero-profile {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-
-    .profile-ring {
-        width: 100px;
-        height: 100px;
-    }
-
-    .profile-info {
-        align-items: center;
-    }
-
-    .profile-name {
-        font-size: 2rem;
-    }
-
-    .profile-icons {
-        justify-content: center;
-    }
-
-    /* Story viewer — full bleed on mobile */
-    .story-container {
-        max-width: 100%;
-        border-radius: 0;
-        max-height: 100vh;
-    }
-
-    /* Sections */
-    .section {
-        padding: 72px 0;
-    }
-
-    .section-label {
-        margin-bottom: 32px;
-    }
-
-    /* Nav bar — tighter on mobile */
-    .nav-bar {
-        padding: 0.8rem 1rem;
-    }
-
-    .nav-brand {
-        font-size: 1rem;
-    }
-
-    .nav-icons-row {
-        gap: 0.5rem;
-    }
-
-    .nav-icon {
-        padding: 8px;
-    }
-
-    /* Hide tooltips on touch */
-    .nav-icon::after {
-        display: none;
-    }
-
-    /* Card grid — single column on mobile */
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Skills grid — single column on mobile */
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Writing */
-    .writing-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-    }
-
-    .writing-date {
-        margin-left: 0;
-    }
-
-    /* Footer */
-    footer {
-        padding: 4rem 20px;
-    }
-
-    .footer-headline {
-        font-size: 2.2rem;
-    }
-
-    .glass-pill {
-        font-size: 0.95rem;
-        padding: 0.85rem 2rem;
     }
 }
 
@@ -862,7 +893,7 @@ footer {
 
 .timeline-item {
     position: relative;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 }
 
 .timeline-item:last-child {
@@ -927,7 +958,7 @@ footer {
 /* Role title — serif */
 .timeline-role {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: var(--text);
     margin-bottom: 4px;
@@ -936,13 +967,141 @@ footer {
 
 /* Organization — italic muted */
 .timeline-org {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     font-style: italic;
 }
 
-/* Timeline mobile adjustments */
+/* ===========================================
+   Mobile — max 640px
+   =========================================== */
 @media (max-width: 640px) {
+    /* Remove side borders on mobile — full bleed */
+    .app-container {
+        border-left: none;
+        border-right: none;
+    }
+
+    /* Profile header */
+    .profile-header {
+        padding-top: 4.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .profile-ring {
+        width: 84px;
+        height: 84px;
+    }
+
+    .profile-name {
+        font-size: 1.75rem;
+    }
+
+    .profile-icons a {
+        font-size: 20px;
+    }
+
+    /* Highlights — smaller on mobile */
+    .highlight-container {
+        gap: 1.5rem;
+    }
+
+    .story-ring {
+        width: 52px;
+        height: 52px;
+    }
+
+    .story-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .highlight-label {
+        font-size: 10px;
+    }
+
+    .highlight-modal {
+        padding: 2rem 1.5rem;
+    }
+
+    .highlight-modal-title {
+        font-size: 1.5rem;
+    }
+
+    .highlight-modal-list li {
+        font-size: 0.95rem;
+    }
+
+    /* Story viewer — full bleed on mobile */
+    .story-container {
+        max-width: 100%;
+        border-radius: 0;
+        max-height: 100vh;
+    }
+
+    /* Feed sections */
+    .feed-section {
+        padding: 1.25rem 1rem;
+    }
+
+    .section-label {
+        margin-bottom: 1rem;
+    }
+
+    /* Nav bar — tighter on mobile */
+    .nav-bar {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-brand {
+        font-size: 1rem;
+    }
+
+    .nav-icons-row {
+        gap: 0.5rem;
+    }
+
+    .nav-icon {
+        padding: 8px;
+    }
+
+    /* Hide tooltips on touch */
+    .nav-icon::after {
+        display: none;
+    }
+
+    /* Skills grid — single column on mobile */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Writing */
+    .writing-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .writing-date {
+        margin-left: 0;
+    }
+
+    /* Footer */
+    .app-footer {
+        padding: 2.5rem 1rem;
+    }
+
+    .footer-headline {
+        font-size: 2rem;
+    }
+
+    .glass-pill {
+        font-size: 0.9rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    /* Timeline mobile adjustments */
     .timeline {
         padding-left: 32px;
     }
@@ -962,6 +1121,6 @@ footer {
     }
 
     .timeline-item {
-        padding-bottom: 2.5rem;
+        padding-bottom: 1.75rem;
     }
 }

@@ -32,30 +32,48 @@
         </nav>
     </header>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="container hero-profile">
+    <div class="app-container">
+        <main>
+            <div class="profile-header" id="hero">
                 <div class="profile-picture" id="profilePic">
                     <div class="profile-ring">
                         <img src="files/about-me.jpg" alt="Sai Kiran Billa">
                     </div>
                 </div>
-                <div class="profile-info">
-                    <h1 class="profile-name fade-in delay-1">Sai Kiran Billa</h1>
-                    <p class="profile-subtitle fade-in delay-1">AI Engineer &amp; Data Strategist</p>
-                    <p class="profile-bio fade-in delay-2">Obsessed with AI, Data, and agentic systems. &#x1F4CD; Urbana-Champaign</p>
-                    <div class="profile-icons fade-in delay-3">
-                        <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-fill"></i></a>
-                        <a href="https://linkedin.com/in/saikiranbilla" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-                        <a href="mailto:sbilla21@outlook.com" aria-label="Email"><i class="ri-mail-line"></i></a>
-                        <a href="#" target="_blank" rel="noopener" aria-label="LeetCode"><i class="ri-code-s-slash-line"></i></a>
+                <h1 class="profile-name fade-in delay-1">Sai Kiran Billa</h1>
+                <p class="profile-subtitle fade-in delay-1">AI Engineer &amp; Data Strategist</p>
+                <p class="profile-bio fade-in delay-2">Obsessed with AI, Data, and agentic systems. &#x1F4CD; Urbana-Champaign</p>
+                <div class="profile-icons fade-in delay-3">
+                    <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+                    <a href="https://linkedin.com/in/saikiranbilla" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                    <a href="mailto:sbilla21@outlook.com" aria-label="Email"><i class="ri-mail-line"></i></a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="LeetCode"><i class="ri-code-s-slash-line"></i></a>
+                </div>
+                <div class="highlight-container">
+                    <div class="highlight-item reveal" data-highlight="leadership">
+                        <div class="story-ring">
+                            <i data-lucide="users" class="story-icon"></i>
+                        </div>
+                        <span class="highlight-label">Leadership</span>
+                    </div>
+                    <div class="highlight-item reveal" data-highlight="impact">
+                        <div class="story-ring">
+                            <i data-lucide="zap" class="story-icon"></i>
+                        </div>
+                        <span class="highlight-label">Impact</span>
+                    </div>
+                    <div class="highlight-item reveal" data-highlight="certs">
+                        <div class="story-ring">
+                            <i data-lucide="award" class="story-icon"></i>
+                        </div>
+                        <span class="highlight-label">Certs</span>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="education" class="section">
-            <div class="container">
+            <div class="feed-divider"></div>
+
+            <section id="education" class="feed-section">
                 <span class="section-label reveal">Education</span>
                 <div class="timeline">
                     <div class="timeline-item active reveal">
@@ -71,11 +89,11 @@
                         <p class="timeline-org">Gokaraju Rangaraju Institute of Engineering &amp; Technology</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="experience" class="section">
-            <div class="container">
+            <div class="feed-divider"></div>
+
+            <section id="experience" class="feed-section">
                 <span class="section-label reveal">Experience</span>
                 <div class="timeline">
                     <div class="timeline-item active reveal">
@@ -91,11 +109,11 @@
                         <p class="timeline-org">University of Illinois Foundation</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="projects" class="section">
-            <div class="container">
+            <div class="feed-divider"></div>
+
+            <section id="projects" class="feed-section">
                 <span class="section-label reveal">Projects</span>
                 <div class="card-grid">
                     <div class="card card--blue reveal">
@@ -132,11 +150,11 @@
                         <a href="#" class="card-cta" target="_blank" rel="noopener">View Project &nearr;</a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="skills" class="section">
-            <div class="container">
+            <div class="feed-divider"></div>
+
+            <section id="skills" class="feed-section">
                 <span class="section-label reveal">Technical Skills</span>
                 <div class="skills-grid">
                     <div class="skill-bucket reveal">
@@ -180,11 +198,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="writing" class="section">
-            <div class="container">
+            <div class="feed-divider"></div>
+
+            <section id="writing" class="feed-section">
                 <span class="section-label reveal">Notes & Thoughts</span>
                 <div class="writing-list">
                     <div class="writing-item reveal">
@@ -192,21 +210,23 @@
                         <span class="writing-date">2025</span>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <footer id="contact">
-        <span class="footer-status reveal"><span class="status-dot"></span>Open to Spring 2026 Opportunities</span>
-        <h2 class="footer-headline reveal">Let's build something intelligent.</h2>
-        <a href="mailto:sbilla21@outlook.com" class="glass-pill reveal">sbilla21@outlook.com &nearr;</a>
-        <div class="footer-icons reveal">
-            <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-fill"></i></a>
-            <a href="https://linkedin.com/in/saikiranbilla" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="LeetCode"><i class="ri-code-s-slash-line"></i></a>
-        </div>
-        <p class="copyright">&copy; 2026 Sai Kiran Billa. Made with &#x1F9E1;&#x1F499;</p>
-    </footer>
+            <div class="feed-divider"></div>
+        </main>
+
+        <footer id="contact" class="app-footer">
+            <span class="footer-status reveal"><span class="status-dot"></span>Open to Spring 2026 Opportunities</span>
+            <h2 class="footer-headline reveal">Let's build something intelligent.</h2>
+            <a href="mailto:sbilla21@outlook.com" class="glass-pill reveal">sbilla21@outlook.com &nearr;</a>
+            <div class="footer-icons reveal">
+                <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+                <a href="https://linkedin.com/in/saikiranbilla" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                <a href="#" target="_blank" rel="noopener" aria-label="LeetCode"><i class="ri-code-s-slash-line"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Sai Kiran Billa. Made with &#x1F9E1;&#x1F499;</p>
+        </footer>
+    </div>
 
     <!-- Story Viewer Modal -->
     <div class="story-overlay" id="storyOverlay">
@@ -230,6 +250,15 @@
             </div>
             <div class="story-nav-left" id="storyPrev"></div>
             <div class="story-nav-right" id="storyNext"></div>
+        </div>
+    </div>
+
+    <!-- Highlights Modal -->
+    <div class="highlight-overlay" id="highlightOverlay">
+        <div class="highlight-modal">
+            <button class="highlight-modal-close" id="highlightClose">&times;</button>
+            <h3 class="highlight-modal-title" id="highlightTitle"></h3>
+            <ul class="highlight-modal-list" id="highlightList"></ul>
         </div>
     </div>
 
