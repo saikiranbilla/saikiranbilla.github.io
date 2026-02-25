@@ -1,0 +1,275 @@
+{
+  "profile": {
+    "name": "Sai Kiran Billa",
+    "subtitle": "AI Engineer & Data Strategist",
+    "bio": "AI Engineer & Data Strategist<br>MSIM @ UIUC '26<br>Building Agentic Systems & Deterministic AI.",
+    "location": "Urbana-Champaign",
+    "linkedinUrl": "https://linkedin.com/in/saikiranbilla",
+    "githubUrl": "https://github.com/saikiranbilla",
+    "emailUrl": "mailto:sbilla21@outlook.com"
+  },
+  "highlights": [
+    {
+      "id": "h1",
+      "title": "Core AI",
+      "icon": "zap",
+      "skills": [
+        {
+          "name": "Python & C++",
+          "context": "Used for high-performance multi-agent task scheduling and backend APIs."
+        },
+        {
+          "name": "LangGraph & MCP",
+          "context": "Architecting deterministic, multi-agent LLM orchestration."
+        }
+      ]
+    },
+    {
+      "id": "h2",
+      "title": "Infra & Data",
+      "icon": "database",
+      "skills": [
+        {
+          "name": "FAISS & Pinecone",
+          "context": "Implemented for semantic caching and rapid vector retrieval."
+        },
+        {
+          "name": "Docker & K8s",
+          "context": "Containerizing microservices and orchestrating agent deployments."
+        }
+      ]
+    },
+    {
+      "id": "h3",
+      "title": "Full-Stack",
+      "icon": "code-2",
+      "skills": [
+        {
+          "name": "Next.js & TypeScript",
+          "context": "Building seamless, SSE-streamed real-time chat interfaces."
+        },
+        {
+          "name": "DuckDB & PostgreSQL",
+          "context": "Local-first SQL analytics and high-availability state management."
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "ed1",
+      "degree": "M.S. in Information Management",
+      "school": "UIUC",
+      "fullSchool": "University of Illinois Urbana-Champaign",
+      "date": "May 2026",
+      "gpa": "3.97/4.0",
+      "coursework": [
+        "Applied Machine Learning",
+        "Statistical Learning",
+        "Methods of Data Science",
+        "Information Modelling"
+      ],
+      "images": [
+        {
+          "src": "images/uiuc-campus.webp",
+          "label": "UIUC",
+          "bg": "linear-gradient(160deg, #13294B 0%, #0c1a30 100%)"
+        },
+        {
+          "src": "images/ms-coursework.svg",
+          "label": "Coursework",
+          "bg": "linear-gradient(160deg, #E84A27 0%, #b3391e 100%)"
+        }
+      ]
+    },
+    {
+      "id": "ed2",
+      "degree": "B.Tech in Computer Science",
+      "school": "GRIET",
+      "fullSchool": "Gokaraju Rangaraju Institute of Engineering & Technology",
+      "date": "Jun 2024",
+      "gpa": "3.7/4.0",
+      "coursework": [
+        "Data Structures & Algorithms",
+        "Operating Systems",
+        "Discrete Math",
+        "Computer Networks"
+      ],
+      "images": [
+        {
+          "src": "images/griet-campus.webp",
+          "label": "GRIET",
+          "bg": "linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%)"
+        },
+        {
+          "src": "images/btech-coursework.svg",
+          "label": "Coursework",
+          "bg": "linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 100%)"
+        }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "ex1",
+      "role": "Sr. Technical Consultant",
+      "company": "Business Intelligence Group",
+      "org": "UIUC",
+      "timeline": "Jan 2026 – Present",
+      "bullets": [
+        "• Leading AI strategy and multi-agent system architecture for client engagements.",
+        "• Authored governance frameworks adopted across 3+ active consulting projects."
+      ],
+      "skills": [
+        "Multi-Agent AI",
+        "LangChain",
+        "Python",
+        "Strategy"
+      ],
+      "images": [
+        {
+          "label": "AI Strategy Consulting",
+          "bg": "linear-gradient(160deg, #080814 0%, #10102a 100%)"
+        },
+        {
+          "label": "Multi-Agent Systems",
+          "bg": "linear-gradient(160deg, #0a0a1e 0%, #14143a 100%)"
+        }
+      ]
+    },
+    {
+      "id": "ex2",
+      "role": "Data Analyst Intern",
+      "company": "Univ. of Illinois Foundation",
+      "org": "UIF",
+      "timeline": "May 2025 – Present",
+      "bullets": [
+        "• Slashed SQL query latency by 40% through indexing and query restructuring.",
+        "• Built automated reporting pipelines saving 10+ analyst hours per week."
+      ],
+      "skills": [
+        "SQL",
+        "Python",
+        "Tableau",
+        "ETL"
+      ],
+      "images": [
+        {
+          "label": "Data Analytics",
+          "bg": "linear-gradient(160deg, #080f0a 0%, #0f1e12 100%)"
+        },
+        {
+          "label": "Pipeline Architecture",
+          "bg": "linear-gradient(160deg, #0a1010 0%, #122020 100%)"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "p1",
+      "title": "CLAI - Canvas Agent",
+      "description": "Devised a 3-agent orchestration system (Supervisor, Executor, Specialist) to automate Canvas LMS tasks via 15+ MCP tools. Implemented semantic caching via FAISS for near-zero latency and routed prompts dynamically to optimize API overhead.",
+      "techStack": [
+        "Python",
+        "LangGraph",
+        "FastAPI",
+        "FAISS"
+      ],
+      "github": "https://github.com/saikiranbilla",
+      "liveLink": "#",
+      "images": [
+        {
+          "src": "images/clai-ui.webp",
+          "label": "CLAI UI",
+          "bg": "linear-gradient(160deg, #181818 0%, #0e0e0e 100%)"
+        },
+        {
+          "src": "images/clai-architecture.svg",
+          "label": "Architecture",
+          "bg": "linear-gradient(160deg, #181818 0%, #0e0e0e 100%)"
+        },
+        {
+          "src": "images/clai-code.svg",
+          "label": "Code",
+          "bg": "linear-gradient(160deg, #181818 0%, #0e0e0e 100%)"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "Quill - Text-to-SQL Agent",
+      "description": "Engineered a local-first BI agent that translates natural language into DuckDB SQL via JSON AST. Built a self-correcting Critic agent that parses error traces with live SSE streaming, ensuring zero API costs and full data privacy.",
+      "techStack": [
+        "LocalLLM",
+        "DuckDB",
+        "FastAPI",
+        "AIOrchestration"
+      ],
+      "github": "https://github.com/saikiranbilla",
+      "liveLink": "#",
+      "images": [
+        {
+          "src": "images/quill-demo.webp",
+          "label": "Demo",
+          "bg": "linear-gradient(160deg, #181818 0%, #0e0e0e 100%)"
+        },
+        {
+          "src": "images/quill-schema.svg",
+          "label": "Schema",
+          "bg": "linear-gradient(160deg, #181818 0%, #0e0e0e 100%)"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": "C++ Multi-Agent Scheduler",
+      "description": "Built a high-performance multithreaded scheduler using C++17 and pybind11 to parallelize Python AI agents. Modeled workflows as Directed Acyclic Graphs (DAGs) and applied Kahn's Algorithm for dependency resolution in O(V+E) time.",
+      "techStack": [
+        "C++17",
+        "pybind11",
+        "DAGs",
+        "ParallelComputing"
+      ],
+      "github": "https://github.com/saikiranbilla",
+      "liveLink": "#",
+      "images": [
+        {
+          "src": "images/scheduler-terminal.webp",
+          "label": "Terminal",
+          "bg": "linear-gradient(160deg, #181818 0%, #0e0e0e 100%)"
+        },
+        {
+          "src": "images/dag-graph.svg",
+          "label": "DAG Graph",
+          "bg": "linear-gradient(160deg, #181818 0%, #0e0e0e 100%)"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": "Instruction-Tuned SLM",
+      "description": "Fine-tuned a TinyLlama-1.1B language model via QLORA to eliminate zero-shot formatting hallucinations. Optimized training memory with 8-bit quantization and rank-64 LORA adapters to stay under a 15GB VRAM limit, reducing structural errors from 80% to under 5%.",
+      "techStack": [
+        "PyTorch",
+        "QLORA",
+        "HuggingFace",
+        "W&B"
+      ],
+      "github": "https://github.com/saikiranbilla",
+      "liveLink": "#",
+      "images": [
+        {
+          "src": "images/slm-training.webp",
+          "label": "Training",
+          "bg": "linear-gradient(160deg, #181818 0%, #0e0e0e 100%)"
+        },
+        {
+          "src": "images/wandb-metrics.svg",
+          "label": "Metrics",
+          "bg": "linear-gradient(160deg, #181818 0%, #0e0e0e 100%)"
+        }
+      ]
+    }
+  ]
+}

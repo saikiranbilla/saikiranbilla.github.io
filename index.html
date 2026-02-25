@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Kiran Billa</title>
-    <meta name="description" content="Developer and graduate student at UIUC building agentic AI systems and data pipelines.">
+    <meta name="description"
+        content="AI Engineer and graduate student at UIUC building agentic AI systems and data pipelines.">
     <meta property="og:title" content="Sai Kiran Billa">
     <meta property="og:description" content="Engineering intelligence from data.">
     <meta property="og:type" content="website">
@@ -14,240 +16,69 @@
     <link rel="apple-touch-icon" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <header>
         <nav class="nav-bar">
             <a href="#hero" class="nav-brand">Sai Kiran Billa</a>
-            <div class="nav-icons-row">
-                <a href="#hero" class="nav-icon" data-tooltip="Home"><i data-lucide="home"></i></a>
-                <a href="#education" class="nav-icon" data-tooltip="Education"><i data-lucide="graduation-cap"></i></a>
-                <a href="#experience" class="nav-icon" data-tooltip="Work"><i data-lucide="briefcase"></i></a>
-                <a href="#projects" class="nav-icon" data-tooltip="Explore"><i data-lucide="compass"></i></a>
-                <a href="#contact" class="nav-icon" data-tooltip="Chat"><i data-lucide="message-circle"></i></a>
+            <div class="header-actions">
+                <button id="theme-toggle" class="nav-dm-btn" aria-label="Toggle Theme">
+                    <i data-lucide="sun"></i>
+                </button>
+                <a href="https://linkedin.com/in/saikiranbilla" target="_blank" rel="noopener" class="nav-dm-btn"
+                    aria-label="Connect on LinkedIn">
+                    <i data-lucide="send"></i>
+                </a>
             </div>
         </nav>
     </header>
 
     <div class="app-container">
-        <main>
-            <div class="profile-header" id="hero">
-                <div class="profile-picture" id="profilePic">
-                    <div class="profile-ring">
-                        <img src="files/about-me.jpg" alt="Sai Kiran Billa">
-                    </div>
-                </div>
-                <h1 class="profile-name fade-in delay-1">Sai Kiran Billa</h1>
-                <p class="profile-subtitle fade-in delay-1">AI Engineer &amp; Data Strategist</p>
-                <p class="profile-bio fade-in delay-2">Obsessed with AI, Data, and agentic systems.</p>
-                <p class="profile-location fade-in delay-2">&#x1F4CD; Urbana-Champaign</p>
-                <div class="profile-icons fade-in delay-3">
-                    <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-fill"></i></a>
-                    <a href="https://linkedin.com/in/saikiranbilla" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-                    <a href="mailto:sbilla21@outlook.com" aria-label="Email"><i class="ri-mail-line"></i></a>
-                    <a href="#" target="_blank" rel="noopener" aria-label="LeetCode"><i class="ri-code-s-slash-line"></i></a>
-                </div>
-                <div class="highlight-container">
-                    <div class="highlight-item reveal" data-highlight="leadership">
-                        <div class="story-ring">
-                            <i data-lucide="users" class="story-icon"></i>
-                        </div>
-                        <span class="highlight-label">Leadership</span>
-                    </div>
-                    <div class="highlight-item reveal" data-highlight="impact">
-                        <div class="story-ring">
-                            <i data-lucide="zap" class="story-icon"></i>
-                        </div>
-                        <span class="highlight-label">Impact</span>
-                    </div>
-                    <div class="highlight-item reveal" data-highlight="certs">
-                        <div class="story-ring">
-                            <i data-lucide="award" class="story-icon"></i>
-                        </div>
-                        <span class="highlight-label">Certs</span>
-                    </div>
-                </div>
+        <main id="hero">
+            <div class="profile-header" id="profile-container"></div>
+
+            <div class="highlight-container" id="highlights-container"></div>
+
+            <div class="nav-tabs" id="nav-tabs">
+                <button class="tab-btn" data-tab="education">Education</button>
+                <button class="tab-btn active" data-tab="projects">Projects</button>
+                <button class="tab-btn" data-tab="experience">Experience</button>
             </div>
 
             <div class="feed-divider"></div>
 
-            <section id="education" class="feed-section">
-                <span class="section-label reveal">Education</span>
-                <div class="timeline">
-                    <div class="timeline-item active reveal">
-                        <div class="timeline-marker"></div>
-                        <span class="timeline-date">Aug 2024 – May 2026</span>
-                        <h3 class="timeline-role">M.S. in Information Management</h3>
-                        <p class="timeline-org">University of Illinois Urbana-Champaign</p>
-                    </div>
-                    <div class="timeline-item past reveal">
-                        <div class="timeline-marker"></div>
-                        <span class="timeline-date">Dec 2020 – Jun 2024</span>
-                        <h3 class="timeline-role">B.Tech in Computer Science</h3>
-                        <p class="timeline-org">Gokaraju Rangaraju Institute of Engineering &amp; Technology</p>
-                    </div>
-                </div>
-            </section>
-
-            <div class="feed-divider"></div>
-
-            <section id="experience" class="feed-section">
-                <span class="section-label reveal">Experience</span>
-                <div class="timeline">
-                    <div class="timeline-item active reveal">
-                        <div class="timeline-marker"></div>
-                        <span class="timeline-date">Jan 2026 – Present</span>
-                        <h3 class="timeline-role">Senior Technical Consultant</h3>
-                        <p class="timeline-org">Business Intelligence Group (UIUC)</p>
-                    </div>
-                    <div class="timeline-item active reveal">
-                        <div class="timeline-marker"></div>
-                        <span class="timeline-date">May 2025 – Present</span>
-                        <h3 class="timeline-role">Data Analyst Intern</h3>
-                        <p class="timeline-org">University of Illinois Foundation</p>
-                    </div>
-                </div>
-            </section>
-
-            <div class="feed-divider"></div>
-
-            <section id="projects" class="feed-section">
-                <span class="section-label reveal">Projects</span>
-                <div class="card-grid">
-                    <div class="card card--blue reveal">
-                        <div class="card-accent"></div>
-                        <h3 class="card-title">TrialSync</h3>
-                        <p class="card-desc">Orchestrating 8 autonomous agents on K8s to reduce screening time by 9x.</p>
-                        <div class="card-tags">
-                            <span>Multi-Agent</span>
-                            <span>Kubernetes</span>
-                            <span>Fetch.ai</span>
-                        </div>
-                        <a href="#" class="card-cta" target="_blank" rel="noopener">View Project &nearr;</a>
-                    </div>
-                    <div class="card card--amber reveal">
-                        <div class="card-accent"></div>
-                        <h3 class="card-title">PrepKit</h3>
-                        <p class="card-desc">Real-time interview coach using FFmpeg and fine-tuned LLaMA-3.</p>
-                        <div class="card-tags">
-                            <span>LLaMA-3</span>
-                            <span>FFmpeg</span>
-                            <span>AWS</span>
-                        </div>
-                        <a href="#" class="card-cta" target="_blank" rel="noopener">View Project &nearr;</a>
-                    </div>
-                    <div class="card card--green reveal">
-                        <div class="card-accent"></div>
-                        <h3 class="card-title">Parenthesis</h3>
-                        <p class="card-desc">Dual-layer safety moderation pipeline with sub-second latency.</p>
-                        <div class="card-tags">
-                            <span>AI Safety</span>
-                            <span>LlamaGuard</span>
-                            <span>Systems</span>
-                        </div>
-                        <a href="#" class="card-cta" target="_blank" rel="noopener">View Project &nearr;</a>
-                    </div>
-                </div>
-            </section>
-
-            <div class="feed-divider"></div>
-
-            <section id="skills" class="feed-section">
-                <span class="section-label reveal">Technical Skills</span>
-                <div class="skills-grid">
-                    <div class="skill-bucket reveal">
-                        <span class="bucket-label">Languages</span>
-                        <div class="pill-cluster">
-                            <span class="tech-pill"><i class="devicon-python-plain colored"></i>Python</span>
-                            <span class="tech-pill"><i class="devicon-java-plain colored"></i>Java</span>
-                            <span class="tech-pill"><i class="ri-database-2-line"></i>SQL</span>
-                            <span class="tech-pill"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
-                            <span class="tech-pill"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
-                        </div>
-                    </div>
-                    <div class="skill-bucket reveal">
-                        <span class="bucket-label">AI & Data</span>
-                        <div class="pill-cluster">
-                            <span class="tech-pill"><i class="devicon-pytorch-original colored"></i>PyTorch</span>
-                            <span class="tech-pill"><i class="ri-links-line"></i>LangChain</span>
-                            <span class="tech-pill"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
-                            <span class="tech-pill"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
-                            <span class="tech-pill"><i class="ri-pushpin-2-line"></i>Pinecone</span>
-                        </div>
-                    </div>
-                    <div class="skill-bucket reveal">
-                        <span class="bucket-label">Frameworks</span>
-                        <div class="pill-cluster">
-                            <span class="tech-pill"><i class="devicon-react-original colored"></i>React</span>
-                            <span class="tech-pill"><i class="devicon-nodejs-plain colored"></i>Node.js</span>
-                            <span class="tech-pill"><i class="devicon-flask-original"></i>Flask</span>
-                            <span class="tech-pill"><i class="devicon-fastapi-plain colored"></i>FastAPI</span>
-                            <span class="tech-pill"><i class="devicon-nextjs-plain"></i>Next.js</span>
-                        </div>
-                    </div>
-                    <div class="skill-bucket reveal">
-                        <span class="bucket-label">Cloud & Tools</span>
-                        <div class="pill-cluster">
-                            <span class="tech-pill"><i class="devicon-amazonwebservices-plain-wordmark colored"></i>AWS</span>
-                            <span class="tech-pill"><i class="devicon-docker-plain colored"></i>Docker</span>
-                            <span class="tech-pill"><i class="devicon-kubernetes-plain colored"></i>Kubernetes</span>
-                            <span class="tech-pill"><i class="devicon-git-plain colored"></i>Git</span>
-                            <span class="tech-pill"><i class="devicon-azure-plain colored"></i>Azure</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="feed-divider"></div>
-
-            <section id="writing" class="feed-section">
-                <span class="section-label reveal">Notes & Thoughts</span>
-                <div class="writing-list">
-                    <div class="writing-item reveal">
-                        <span class="writing-title">Coming Soon: Thoughts on Agentic Workflows.</span>
-                        <span class="writing-date">2025</span>
-                    </div>
-                </div>
-            </section>
-
-            <div class="feed-divider"></div>
+            <div class="feed-container" id="feed-container"></div>
         </main>
-
-        <footer id="contact" class="app-footer">
-            <span class="footer-status reveal"><span class="status-dot"></span>Open to Spring 2026 Opportunities</span>
-            <h2 class="footer-headline reveal">Let's build something intelligent.</h2>
-            <a href="mailto:sbilla21@outlook.com" class="glass-pill reveal">sbilla21@outlook.com &nearr;</a>
-            <div class="footer-icons reveal">
-                <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-fill"></i></a>
-                <a href="https://linkedin.com/in/saikiranbilla" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-                <a href="#" target="_blank" rel="noopener" aria-label="LeetCode"><i class="ri-code-s-slash-line"></i></a>
-            </div>
-            <p class="copyright">&copy; 2026 Sai Kiran Billa. Made with &#x1F9E1;&#x1F499;</p>
-        </footer>
     </div>
 
     <!-- Story Viewer Modal -->
     <div class="story-overlay" id="storyOverlay">
         <div class="story-container">
             <div class="story-progress">
-                <div class="progress-bar"><div class="progress-fill"></div></div>
-                <div class="progress-bar"><div class="progress-fill"></div></div>
-                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
             </div>
             <button class="story-close" id="storyClose">&times;</button>
             <div class="story-slides">
-                <div class="story-slide active" style="background:linear-gradient(135deg,#1a3a2a,#0d1f15)">
+                <div class="story-slide active" style="background: linear-gradient(160deg, #0a1a0f, #13294B)">
                     <span class="story-label">UIUC Quad</span>
                 </div>
-                <div class="story-slide" style="background:linear-gradient(135deg,#1a1a2e,#0d0d1a)">
+                <div class="story-slide" style="background: linear-gradient(160deg, #0a0a1f, #1a0a2e)">
                     <span class="story-label">Coding Setup</span>
                 </div>
-                <div class="story-slide" style="background:linear-gradient(135deg,#2a1a1a,#1a0d0d)">
+                <div class="story-slide" style="background: linear-gradient(160deg, #1f0a0a, #2e0a0a)">
                     <span class="story-label">Nature</span>
                 </div>
             </div>
@@ -268,4 +99,5 @@
     <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
