@@ -1,1084 +1,165 @@
-/* ===========================================
-   CSS Variables
-   =========================================== */
+/* 1. GOOGLE FONTS IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
 :root {
-    --bg-color: #111111;
-    --body-bg: #111111;
-    --text-primary: #FFFFFF;
-    --text-secondary: #A3A3A3;
-    --border-color: #262626;
-    --glass-bg: rgba(17, 17, 17, 0.95);
-    --accent-blue: #38BDF8;
-    --story-ring: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    --story-inner-bg: var(--bg-color);
-    --profile-ring: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    --profile-pulse-color: 232, 74, 39;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --bg: #0A0A0A;
+    --bg-card: #111111;
+    --text-1: #E8E4E0;
+    --text-2: #A09890;
+    --text-3: #5A5652;
+    --accent: #C8956C;
+    --accent-dim: rgba(200, 149, 108, 0.08);
+    --accent-glow: rgba(200, 149, 108, 0.15);
+    --border: rgba(255, 255, 255, 0.06);
+    --border-hover: rgba(200, 149, 108, 0.25);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-body.light-mode {
-    --bg-color: #F7F7F5;
-    --body-bg: #EBEBEA;
-    --text-primary: #2D2D2D;
-    --text-secondary: #4A4A4A;
-    --border-color: rgba(0, 0, 0, 0.08);
-    --glass-bg: rgba(247, 247, 245, 0.85);
-    --accent-blue: #0284C7;
-    --story-inner-bg: #EFEFEF;
+[data-theme="light"] {
+    --bg: #FAF9F7;
+    --bg-card: #FFFFFF;
+    --text-1: #1A1816;
+    --text-2: #5C5650;
+    --text-3: #8A847E;
+    --accent: #B07D56;
+    --accent-dim: rgba(176, 125, 86, 0.08);
+    --accent-glow: rgba(176, 125, 86, 0.12);
+    --border: rgba(0, 0, 0, 0.07);
+    --border-hover: rgba(176, 125, 86, 0.25);
 }
 
-/* ===========================================
-   Reset & Base
-   =========================================== */
 *,
 *::before,
 *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-.fade-out {
-    opacity: 0 !important;
-}
-
-.fade-in {
-    opacity: 1 !important;
-}
-
-#feed-container {
-    transition: opacity 0.2s ease-in-out;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, fill 0.4s ease, stroke 0.4s ease;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 70px;
+    font-size: 16px;
 }
 
 body {
-    font-family: var(--font-sans);
-    background: var(--body-bg);
-    color: var(--text-primary);
-    line-height: 1.6;
-    font-size: 16px;
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-2);
+    background: var(--bg);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-::selection {
-    background: rgba(161, 161, 170, 0.3);
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--serif);
+    color: var(--text-1);
+    line-height: 1.2;
 }
 
 a {
-    color: inherit;
+    color: var(--accent);
     text-decoration: none;
 }
 
-strong {
-    font-weight: 600;
-    color: var(--text-primary);
+a:hover {
+    text-decoration: underline;
 }
 
-/* ===========================================
-   App Container — Central Column
-   =========================================== */
-.app-container {
-    max-width: 680px;
+::selection {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.wrapper {
+    max-width: 1200px;
     margin: 0 auto;
-    background-color: var(--bg-color);
-    border-left: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    min-height: 100vh;
-    padding-bottom: 30px;
-    position: relative;
-    transition: background-color 0.3s ease;
+    padding: 0 48px;
 }
 
-/* ===========================================
-   Feed Divider
-   =========================================== */
-.feed-divider {
-    width: 100%;
-    height: 1px;
-    background-color: var(--border-color);
+.section {
+    margin-bottom: 80px;
 }
 
-/* ===========================================
-   Header — Simplified Nav
-   =========================================== */
-header {
-    position: sticky;
-    top: 0;
-    margin: 0 auto;
-    border-radius: 0;
-    width: 100%;
-    max-width: 680px;
-    z-index: 1000;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: none;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.nav-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.9rem 1.5rem;
-    max-width: 680px;
-    margin: 0 auto;
-}
-
-.nav-brand {
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: -0.02em;
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-.nav-dm-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    color: var(--text-secondary);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: color 0.2s ease, background 0.2s ease;
-}
-
-.nav-dm-btn:hover {
-    color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.nav-dm-btn svg {
-    width: 20px;
-    height: 20px;
-    stroke-width: 2;
-}
-
-/* ===========================================
-   Profile Header — Native Instagram Layout
-   =========================================== */
-.profile-header {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-    padding-top: 3rem;
-    margin: 0;
-}
-
-/* Row 1: Avatar + Stats */
-.profile-top-row {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    justify-content: flex-start;
-}
-
-.profile-avatar-container {
-    flex-shrink: 0;
-    width: 96px;
-    height: 96px;
-    cursor: pointer;
-}
-
-.profile-ring {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    padding: 3px;
-    background: var(--profile-ring);
-    animation: ring-pulse 2.5s ease-in-out infinite;
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.profile-avatar-container:hover .profile-ring {
-    transform: scale(1.06);
-}
-
-.profile-ring img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    border: 3px solid var(--bg-color);
-    transition: border-color 0.3s ease;
-}
-
-.profile-stats {
-    display: flex;
-    gap: 32px;
-    flex-grow: 1;
-    justify-content: space-evenly;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 14px;
-}
-
-.stat-num {
-    font-weight: 700;
-    color: var(--text-primary);
-    font-size: 16px;
-}
-
-.stat-label {
-    color: var(--text-secondary);
-    font-size: 13px;
-}
-
-/* Row 2: Bio Section */
-.profile-bio-section {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    text-align: left;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-.profile-bio-section h2 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0;
-}
-
-.profile-bio-section p,
-.profile-bio-section span {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.4;
-}
-
-.profile-icons {
-    display: flex;
-    gap: 12px;
-    justify-content: flex-start;
-    margin-top: 8px;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-.profile-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: var(--text-secondary);
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.profile-icons a:hover {
-    color: var(--text-primary);
-    transform: scale(1.1);
-}
-
-@keyframes ring-pulse {
-
-    0%,
-    100% {
-        box-shadow: 0 0 0 0 rgba(var(--profile-pulse-color), 0.3);
-    }
-
-    50% {
-        box-shadow: 0 0 0 10px rgba(var(--profile-pulse-color), 0);
-    }
-}
-
-/* ===========================================
-   Profile Button
-   =========================================== */
-.profile-btn-primary {
-    width: 100%;
-    padding: 0.75rem;
-    background: var(--text-primary);
-    color: var(--bg-color);
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 0.9rem;
+.card {
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
-.profile-btn-primary:hover {
-    background: #e8e8e8;
-    transform: translateY(-1px);
-}
-
-body.light-mode .profile-btn-primary {
-    background: #2D2D2D;
-    color: #FFFFFF;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-body.light-mode .profile-btn-primary:hover {
-    background: #1A1A1A;
-}
-
-/* ===========================================
-   Instagram Highlights — Story Ring (70px, gradient border)
-   =========================================== */
-.highlight-container {
-    display: flex;
-    gap: 1.75rem;
-    margin-top: 1rem;
-    margin-bottom: 0;
-    padding: 0 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.highlight-container::-webkit-scrollbar {
-    display: none;
-}
-
-.highlight-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    gap: 6px;
-}
-
-/* Gradient border via background dual-layer */
-.story-ring {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    background:
-        linear-gradient(var(--story-inner-bg), var(--story-inner-bg)) padding-box,
-        var(--story-ring) border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-.highlight-item:hover .story-ring {
-    transform: scale(1.06);
-    background:
-        linear-gradient(var(--story-inner-bg), var(--story-inner-bg)) padding-box,
-        var(--story-ring) border-box;
-}
-
-.story-icon {
-    width: 22px;
-    height: 22px;
-    color: var(--text-primary);
-    stroke-width: 1.5px;
-}
-
-.highlight-label {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    font-family: var(--font-sans);
-    letter-spacing: 0.01em;
-}
-
-/* ===========================================
-   Nav Tabs
-   =========================================== */
-.nav-tabs {
-    position: sticky;
-    top: 57px;
-    /* Clears the flush header */
-    z-index: 100;
-    display: flex;
-    justify-content: space-around;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: 0;
-}
-
-.tab-btn {
-    flex: 1;
-    background: transparent;
-    color: var(--text-secondary);
-    border: none;
-    padding: 0.9rem 0;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s ease, border-color 0.2s ease;
-    font-family: var(--font-sans);
-    letter-spacing: 0.01em;
-}
-
-.tab-btn.active {
-    color: var(--text-primary);
-    border-bottom: 2px solid var(--text-primary);
-}
-
-/* ===========================================
-   Instagram Post Feed
-   =========================================== */
-.insta-post {
-    background: var(--bg-color);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
-    animation: fadeIn 0.3s ease forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(6px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.insta-header {
-    display: flex;
-    align-items: center;
-    padding: 0.85rem 1.25rem;
-    gap: 10px;
-}
-
-.insta-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #222;
-    border: 1px solid #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.insta-avatar svg {
-    width: 16px;
-    height: 16px;
-    stroke-width: 2;
-    color: var(--text-secondary);
-}
-
-.insta-header-text {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.insta-title {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.insta-subtitle {
-    font-size: 0.72rem;
-    color: var(--text-secondary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* ===========================================
-   Carousel
-   =========================================== */
-.insta-image-container {
-    position: relative;
-    width: 100%;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.carousel::-webkit-scrollbar {
-    display: none;
-}
-
-.carousel-slide {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-    aspect-ratio: 1 / 1;
-    max-height: 500px;
-    background: #181818;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.slide-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: #555;
-}
-
-.slide-placeholder svg {
-    width: 36px;
-    height: 36px;
-    stroke-width: 1.5;
-    color: #555;
-}
-
-.slide-placeholder span {
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    padding: 8px 0 4px;
-}
-
-.carousel-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #3a3a3a;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.carousel-dot.active {
-    background: var(--text-primary);
-    transform: scale(1.2);
-}
-
-.carousel-counter {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 500;
-    border-radius: 12px;
-    padding: 4px 8px;
-    z-index: 10;
-    pointer-events: none;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-/* ===========================================
-   Post Actions & Caption
-   =========================================== */
-.insta-actions {
-    display: flex;
-    justify-content: flex-start;
-    padding: 0.75rem 1.25rem;
-    gap: 1rem;
-    color: var(--text-primary);
-}
-
-.insta-actions a,
-.insta-actions button {
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.insta-actions a:hover,
-.insta-actions button:hover {
-    color: var(--text-primary);
-    transform: scale(1.15);
-}
-
-.insta-actions .action-icon {
-    transition: all 0.2s ease;
-}
-
-.insta-actions .action-icon:hover {
-    color: #fff;
-    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
-    transform: scale(1.15) translateY(-1px);
-}
-
-.insta-actions svg {
-    width: 22px;
-    height: 22px;
-    stroke-width: 2;
-    transition: all 0.2s ease;
-}
-
-.insta-actions .like-btn.liked {
-    color: #ed4956;
-}
-
-.insta-actions .like-btn.liked svg {
-    fill: #ed4956;
-    stroke: #ed4956;
-    animation: heartBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-@keyframes heartBounce {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.25);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-.insta-caption {
-    padding: 0 1.25rem 0.5rem;
-    font-size: 0.875rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
-.insta-caption .caption-title {
-    display: block;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-}
-
-.insta-caption p {
-    margin-bottom: 0.3rem;
-}
-
-.insta-caption p:last-child {
-    margin-bottom: 0;
-}
-
-.insta-tags {
-    padding: 0.1rem 1.25rem 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.insta-tags span {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--accent-blue);
-}
-
-/* ===========================================
-   Highlights Modal
-   =========================================== */
-.highlight-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.highlight-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.highlight-modal {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    padding: 3rem 2.5rem;
-    text-align: left;
-}
-
-.highlight-modal-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.6rem;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.6;
-    transition: opacity 0.2s ease;
-    line-height: 1;
-}
-
-.highlight-modal-close:hover {
-    opacity: 1;
-}
-
-.highlight-modal-title {
-    font-family: var(--font-sans);
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.03em;
-}
-
-.highlight-modal-list {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-}
-
-.highlight-modal-list li {
-    font-size: 0.95rem;
-    color: #ccc;
-    line-height: 1.65;
-    padding-left: 1rem;
-    position: relative;
-}
-
-.highlight-modal-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: #444;
-}
-
-/* ===========================================
-   Story Viewer Modal
-   =========================================== */
-.story-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.story-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.story-container {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    aspect-ratio: 9 / 16;
-    max-height: 90vh;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #111;
-}
-
-.story-progress {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    display: flex;
-    gap: 4px;
-    z-index: 10;
-}
-
-.progress-bar {
-    flex: 1;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.progress-fill {
-    width: 0;
-    height: 100%;
-    background: #fff;
-    border-radius: 2px;
-}
-
-.story-close {
-    position: absolute;
-    top: 22px;
-    right: 14px;
-    z-index: 10;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-    line-height: 1;
-}
-
-.story-close:hover {
-    opacity: 1;
-}
-
-.story-slides {
-    position: absolute;
-    inset: 0;
-}
-
-.story-slide {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.story-slide.active {
-    opacity: 1;
-}
-
-.story-label {
-    font-family: var(--font-sans);
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.35);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.story-nav-left,
-.story-nav-right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 40%;
-    z-index: 5;
-    cursor: pointer;
-}
-
-.story-nav-left {
-    left: 0;
-}
-
-.story-nav-right {
-    right: 0;
-}
-
-
-
-/* ===========================================
-   Animations
-   =========================================== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeInUp 0.7s ease forwards;
-}
-
-.delay-1 {
-    animation-delay: 0.15s;
-}
-
-.delay-2 {
-    animation-delay: 0.3s;
-}
-
-.delay-3 {
-    animation-delay: 0.45s;
+*:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.reveal.active {
+.revealed {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* ===========================================
-   Reduced Motion
-   =========================================== */
+.reveal.from-left {
+    transform: translateX(-16px);
+}
+
+.reveal.scale-in {
+    transform: scale(0.97);
+}
+
 @media (prefers-reduced-motion: reduce) {
 
-    .fade-in,
-    .reveal {
+    *,
+    *::before,
+    *::after {
         animation: none !important;
         transition: none !important;
-        opacity: 1 !important;
-        transform: none !important;
     }
 
-    .profile-picture,
-    .profile-ring {
-        animation: none !important;
-        opacity: 1 !important;
-        transform: none !important;
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 }
 
-/* ===========================================
-   Mobile — max 640px
-   =========================================== */
-@media (max-width: 640px) {
-    .app-container {
-        border-left: none;
-        border-right: none;
-    }
+::-webkit-scrollbar {
+    width: 6px;
+}
 
-    .profile-header {
-        padding-top: 4.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
 
-    .profile-ring {
-        width: 84px;
-        height: 84px;
-    }
+::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 3px;
+}
 
-    .profile-name {
-        font-size: 1.5rem;
-    }
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
 
-    .highlight-container {
-        gap: 1.25rem;
-    }
+.tagline {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-3);
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+    max-width: 320px;
+}
 
-    .story-ring {
-        width: 60px;
-        height: 60px;
-    }
-
-    .story-icon {
-        width: 18px;
-        height: 18px;
-    }
-
-    .highlight-label {
-        font-size: 11px;
-    }
-
-    .highlight-modal {
-        padding: 2rem 1.5rem;
-    }
-
-    .highlight-modal-title {
-        font-size: 1.4rem;
-    }
-
-    .story-container {
-        max-width: 100%;
-        border-radius: 0;
-        max-height: 100vh;
-    }
-
-    .nav-bar {
-        padding: 0.9rem 1rem;
-    }
-
-    .sticky-footer::before,
-    .sticky-footer::after {
-        display: none;
-    }
-
-    .carousel-slide {
-        max-height: 420px;
-    }
-
-    .insta-header {
-        padding: 0.85rem 1rem;
-    }
-
-    .insta-actions,
-    .insta-caption,
-    .insta-tags {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+.about__content p {
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+    max-width: 100%;
 }
