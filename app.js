@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme setup to avoid flash
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    // Always enforce dark mode on load, as requested
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.removeItem('theme'); // Reset any stray saved preference
 
     const themeToggle = document.querySelector('.theme-toggle');
     if (themeToggle) {
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
             if (window._threeShapes) {
                 window._threeShapes.setTheme(newTheme === 'light');
             }
