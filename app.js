@@ -413,8 +413,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Smooth scrolling
+    const mainEl = document.querySelector('main') || document.documentElement;
+
     function smoothScrollTo(targetY, duration = 600) {
-        const startY = window.scrollY;
+        const startY = mainEl.scrollTop;
         const distance = targetY - startY;
         const startTime = performance.now();
 
@@ -424,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const step = (currentTime) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+            mainEl.scrollTo(0, startY + distance * easeInOutCubic(progress));
             if (progress < 1) requestAnimationFrame(step);
         };
 
@@ -436,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = document.querySelector(anchor.getAttribute('href'));
             if (target) {
-                const targetY = target.getBoundingClientRect().top + window.scrollY - 32;
+                const targetY = target.offsetTop - 32;
                 smoothScrollTo(targetY, 650);
             }
         });
@@ -488,7 +490,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        window.addEventListener('scroll', onScroll, { passive: true });
+        if (mainEl) {
+            mainEl.addEventListener('scroll', onScroll, { passive: true });
+        } else {
+            window.addEventListener('scroll', onScroll, { passive: true });
+        }
         onScroll();
     }
 
@@ -504,6 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, {
+            root: mainEl && window.innerWidth > 768 ? mainEl : null,
             rootMargin: isMobile ? '-20px' : '-60px',
             threshold: 0.1
         });
@@ -540,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('.nav-link');
 
         const observerOptions = {
-            root: null,
+            root: mainEl && window.innerWidth > 768 ? mainEl : null,
             rootMargin: '-20% 0px -60% 0px',
             threshold: 0
         };
@@ -605,9 +612,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll progress loop
     const scrollProgress = document.querySelector('.scroll-progress');
-    window.addEventListener('scroll', () => {
-        const totalScroll = document.documentElement.scrollTop;
-        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollTarget = window.innerWidth > 768 ? (document.querySelector('main') || window) : window;
+    
+    scrollTarget.addEventListener('scroll', () => {
+        const scroller = scrollTarget === window ? document.documentElement : scrollTarget;
+        const totalScroll = scroller.scrollTop;
+        const windowHeight = scroller.scrollHeight - scroller.clientHeight;
         const scroll = `${(totalScroll / windowHeight) * 100}%`;
         if (scrollProgress) {
             scrollProgress.style.width = scroll;
