@@ -459,47 +459,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Animations and Scroll Observers ---
 
     function initScrollOpacity() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-        const sections = document.querySelectorAll('section[id]');
-        const isMobile = window.innerWidth <= 768;
-
-        const onScroll = () => {
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-
-                // Skip any section that is taller than window.innerHeight * 1.5
-                if (rect.height > windowHeight * 1.5) {
-                    section.style.opacity = 1;
-                    return;
-                }
-
-                // How centered is this section in the viewport (0 = edge, 1 = centered)
-                const center = windowHeight / 2;
-                const sectionCenter = rect.top + rect.height / 2;
-                const distance = Math.abs(center - sectionCenter);
-                const maxDistance = windowHeight * 0.75;
-
-                if (isMobile) {
-                    section.style.opacity = 1;
-                    section.style.transition = 'none';
-                    return;
-                }
-
-                const opacity = Math.max(0.6, 1 - (distance / maxDistance) * 0.4);
-
-                section.style.opacity = opacity;
-                section.style.transition = 'opacity 0.15s ease';
-            });
-        };
-
-        if (mainEl) {
-            mainEl.addEventListener('scroll', onScroll, { passive: true });
-        } else {
-            window.addEventListener('scroll', onScroll, { passive: true });
-        }
-        onScroll();
+        // Disabled — dims content and hurts readability
+        return;
     }
 
     function initScrollReveals() {
