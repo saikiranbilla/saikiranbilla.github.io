@@ -481,9 +481,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const distance = Math.abs(center - sectionCenter);
                 const maxDistance = windowHeight * 0.75;
 
-                // On mobile reduce the effect: opacity range 0.65 to 1 instead of 0.4
-                const minOpacity = isMobile ? 0.65 : 0.4;
-                const opacity = Math.max(minOpacity, 1 - (distance / maxDistance) * (1 - minOpacity));
+                if (isMobile) {
+                    section.style.opacity = 1;
+                    section.style.transition = 'none';
+                    return;
+                }
+
+                const opacity = Math.max(0.6, 1 - (distance / maxDistance) * 0.4);
 
                 section.style.opacity = opacity;
                 section.style.transition = 'opacity 0.15s ease';
