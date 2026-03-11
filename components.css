@@ -514,4 +514,31 @@
     .exp-card__role {
         font-size: 16px;
     }
+
+    .project-card.hero {
+        padding: 16px;
+    }
+
+    .project-card.standard {
+        padding: 16px;
+        margin: 0;
+        border-radius: 8px;
+    }
+
+    .contact__message {
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .contact__email {
+        font-size: 18px;
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    .contact__socials {
+        margin-top: 0;
+    }
 }

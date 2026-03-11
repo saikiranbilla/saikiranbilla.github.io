@@ -1,7 +1,7 @@
 (() => {
     // GUARD CLAUSES
     if (window.innerWidth <= 768) return;
-    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isReducedMotion = false; // window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // RENDERER
     const canvas = document.getElementById('three-bg');
