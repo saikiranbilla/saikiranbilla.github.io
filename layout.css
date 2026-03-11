@@ -362,26 +362,26 @@ main .section:last-child {
     .wrapper {
         display: block;
         height: auto;
-        overflow: visible;
-        width: 100%;
-        max-width: 100%;
         box-sizing: border-box;
-        padding: 0 16px;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
     }
 
     .sidebar {
         height: auto;
-        overflow: visible;
-        padding: 24px 16px 0 !important;
         border-right: none;
         justify-content: flex-start !important;
-        width: 100%;
-        max-width: 100%;
         box-sizing: border-box;
         position: relative;
         display: flex;
         flex-direction: column;
         gap: 0 !important;
+        padding: 24px 16px 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
     }
 
     .sidebar__top {
@@ -448,13 +448,13 @@ main .section:last-child {
 
     main {
         height: auto;
-        overflow: visible;
-        padding: 0 16px;
-        width: 100%;
-        max-width: 100%;
         box-sizing: border-box;
         border-top: 1px solid var(--border);
         border-left: none;
+        padding: 0 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
     }
 
     .section {
