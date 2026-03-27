@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Sai Kiran Billa portfolio">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#09090b"/>
+      <stop offset="100%" style="stop-color:#1a1512"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c9956a"/>
+      <stop offset="100%" style="stop-color:#e8a87c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1040" height="470" rx="4" fill="none" stroke="rgba(201,149,106,0.25)" stroke-width="1"/>
+  <text x="120" y="280" fill="#f0ece8" font-family="Georgia, serif" font-size="64" font-weight="600">Sai Kiran Billa</text>
+  <text x="120" y="360" fill="url(#gold)" font-family="Georgia, serif" font-size="32">AI &amp; Software Engineer</text>
+  <text x="120" y="420" fill="#6b6560" font-family="system-ui, sans-serif" font-size="22">Production-grade intelligent systems</text>
+</svg>

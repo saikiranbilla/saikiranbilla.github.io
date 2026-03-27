@@ -4,7 +4,11 @@
     const canvas = document.getElementById('sidebar-shape');
     if (!canvas) return;
 
-    const isReducedMotion = false; // window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const host = canvas.parentElement && canvas.parentElement.classList.contains('sidebar-sphere-host')
+        ? canvas.parentElement
+        : null;
+
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // RENDERER & SIZING INITS
     const width = canvas.clientWidth;
@@ -20,7 +24,7 @@
     camera.position.z = 4; // Moved closer
     camera.lookAt(0, 0, 0);
 
-    // SHAPE 
+    // SHAPE
     const geometry = new THREE.IcosahedronGeometry(1.1, 1); // Reduced from 1.8 to 1.1
     const material = new THREE.MeshBasicMaterial({
         color: 0xC8956C,
@@ -39,6 +43,21 @@
 
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
+
+    // --- CSS-driven spin period (seconds per full Y revolution); ease over ~2s on change ---
+    function readTargetOmega() {
+        if (!host) return (2 * Math.PI) / 40;
+        const raw = getComputedStyle(host).getPropertyValue('--sidebar-period').trim();
+        const p = parseFloat(raw);
+        const sec = Number.isFinite(p) && p > 0 ? p : 40;
+        return (2 * Math.PI) / sec;
+    }
+
+    let omegaStableTarget = readTargetOmega();
+    let omegaTo = omegaStableTarget;
+    let currentOmega = omegaTo;
+    let omegaBlendStart = null;
+    let omegaFrom = currentOmega;
 
     // INTERACTION STATE
     let isDragging = false;
@@ -121,14 +140,38 @@
         }
     };
 
+    let lastFrameTime = performance.now();
+
     // ANIMATION LOOP
     let animationFrameId;
 
-    const loop = () => {
+    const loop = (now) => {
         animationFrameId = requestAnimationFrame(loop);
+        const delta = Math.min(0.05, (now - lastFrameTime) / 1000);
+        lastFrameTime = now;
 
         if (Math.abs(material.opacity - targetOpacity) > 0.001) {
             material.opacity += (targetOpacity - material.opacity) * 0.1;
+        }
+
+        const desiredOmega = readTargetOmega();
+
+        if (omegaBlendStart !== null) {
+            const u = Math.min(1, (now - omegaBlendStart) / 2000);
+            const ease = 1 - (1 - u) * (1 - u);
+            currentOmega = omegaFrom + (omegaTo - omegaFrom) * ease;
+            if (u >= 1) {
+                currentOmega = omegaTo;
+                omegaBlendStart = null;
+                omegaStableTarget = omegaTo;
+            }
+        }
+
+        if (omegaBlendStart === null && Math.abs(desiredOmega - omegaStableTarget) > 1e-7) {
+            omegaFrom = currentOmega;
+            omegaTo = desiredOmega;
+            omegaStableTarget = desiredOmega;
+            omegaBlendStart = performance.now();
         }
 
         if (!isDragging) {
@@ -144,8 +187,8 @@
                 }
             } else {
                 if (!isReducedMotion) {
-                    mesh.rotation.y += 0.004;
-                    mesh.rotation.x += 0.001;
+                    mesh.rotation.y += currentOmega * delta;
+                    mesh.rotation.x += currentOmega * 0.25 * delta;
                 }
             }
         }
@@ -160,6 +203,7 @@
         if (document.hidden) {
             cancelAnimationFrame(animationFrameId);
         } else {
+            lastFrameTime = performance.now();
             animationFrameId = requestAnimationFrame(loop);
         }
     });

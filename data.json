@@ -1,9 +1,9 @@
 {
   "meta": {
     "name": "Sai Kiran Billa",
-    "title": "AI Engineer & Software Engineer",
+    "title": "AI Software Engineer",
     "tagline": "अनुगच्छतु प्रवाहः\nanugacchatu pravāhaḥ",
-    "about": "I build things — that's how I learn, how I think, and how I get better. Not by waiting until I'm ready, but by starting, shipping, and figuring it out along the way. I'm drawn to the hard problems at the intersection of AI and systems: the ones where the intelligence has to actually work, not just demo well. I'm still early in my career but I show up every day trying to be 1% better than yesterday — in the codebase, in how I reason about systems, in how I communicate ideas. I'm graduating from UIUC in May 2026 and actively looking for new grad SWE and AI Engineer roles — if you're building something hard, I'd love to talk.",
+    "about": "I build things — that's how I learn, how I think, and how I get better. Not by waiting until I'm ready. By starting, shipping, and figuring it out along the way. I'm drawn to hard problems at the intersection of AI and systems. If you're building something hard, I'd love to talk.",
     "contact": "If something here made you stop scrolling, I'd genuinely like to talk. I'm not looking for just any role — I'm looking for the one where the problems are hard enough to be interesting.",
     "status": {
       "text": "Graduating May 2026 · Open to new grad roles",
@@ -20,11 +20,12 @@
       "id": "cropmindai",
       "title": "CropMindAI",
       "type": "hero",
+      "image": "assets/projects/cropmindai.svg",
       "category": "ai",
-      "problem": "When floods destroy crops, producers have 72 hours to file a federal insurance claim or lose coverage entirely — but the manual adjuster process takes 3–5 business days and misrouting a claim costs producers $18,000–$42,000 in lost indemnity.",
-      "approach": "Built a 7-agent LangGraph pipeline where three perception agents (Vision via Claude 3.5, Environmental via Open-Meteo, Satellite via soil moisture APIs) fan out concurrently, feed into a deterministic FCIC flood classifier, then a Spatial Agent calculates contiguous flooded acreage via Haversine BFS clustering, and a RAG agent retrieves matching federal policy clauses from a pgvector knowledge base. The key architectural decision was making the classifier fully deterministic — no LLM involved — so every routing decision is auditable and maps to a specific FCIC handbook section. Built as the sole engineer on a cross-functional team with agriculture students.",
-      "impact": "Won 2nd place in the GenAI track at the UIUC AgTech Hackathon 2026. Pipeline runs end-to-end in 18–25 seconds vs. 3–5 business days manually, with all 4 FCIC claim pathways correctly classified across test scenarios.",
-      "reflection": "The Vision Agent currently reasons from structured metadata rather than raw pixel data — in v2 I'd pipe field photos directly into Claude's multimodal API and add Sentinel-2 NDVI time series for pre/post-event vegetation comparison.",
+      "problem": "When floods destroy crops, producers have 72 hours to file a federal insurance claim or lose coverage — manual adjusters take 3–5 business days, and a misrouted claim costs $18,000–$42,000 in lost indemnity.",
+      "approach": "7-agent LangGraph pipeline — three perception agents (Claude Vision, Open-Meteo, soil moisture APIs) fan out concurrently into a deterministic FCIC flood classifier, a Spatial Agent computes contiguous flooded acreage via Haversine BFS, then a RAG agent retrieves matching policy clauses from pgvector. Key call: classifier is fully deterministic — no LLM, every routing decision maps to a specific FCIC handbook section and is auditable.",
+      "impact": "Won 2nd place, GenAI track, UIUC AgTech Hackathon 2026. Pipeline runs in 18–25 seconds vs. 3–5 business days manually, with all 4 FCIC claim pathways correctly classified.",
+      "reflection": "The Vision Agent reasons from structured metadata rather than raw pixels — in v2 I'd pipe field photos directly into Claude's multimodal API and add Sentinel-2 NDVI time series for pre/post-event vegetation comparison.",
       "tech": [
         "React",
         "FastAPI",
@@ -47,16 +48,18 @@
         "pipeline": "Field photo + GPS → Vision Agent (Claude) → Environmental Agent (Open-Meteo) → Satellite Agent (soil moisture) → FCIC Flood Classifier → Spatial Agent (Haversine BFS) → Insurance RAG (pgvector) → Synthesis Agent → Audit-ready report",
         "modelType": "transformer",
         "dataSource": "Open-Meteo weather archive, Open-Elevation API, Supabase pgvector FCIC policy knowledge base, producer-submitted geo-tagged field photos"
-      }
+      },
+      "diagram": "flowchart LR\n  IN[\"Field Photo + GPS\"] --> VA[\"Vision Agent\\nClaude 3.5\"]\n  IN --> EA[\"Env Agent\\nOpen-Meteo\"]\n  IN --> SA[\"Satellite Agent\\nSoil Moisture\"]\n  VA & EA & SA --> FC[\"FCIC Classifier\\ndeterministic\"]\n  FC --> SP[\"Spatial Agent\\nHaversine BFS\"]\n  SP --> RA[\"RAG Agent\\npgvector\"]\n  RA --> OUT[\"Audit Report\"]"
     },
     {
       "id": "aura",
       "title": "Aura",
       "type": "standard",
+      "thumb": "assets/projects/aura.svg",
       "category": "ai",
-      "problem": "Post-surgical patients have no way to monitor their own recovery at home — clinicians are flying blind between appointments and discharge instructions get ignored or misunderstood.",
-      "approach": "Built at a hackathon with a teammate — I owned the backend LangGraph orchestration, Modal GPU infrastructure, and the MediaPipe pose estimation system. Three specialized agents (Maya for prescription reading via VLM, Rex for FDA drug interaction checks, Sol for plain-language synthesis) run as a state machine with conditional routing. The key decision was running pose estimation client-side via MediaPipe WASM rather than server-side — eliminating the round-trip latency that would have made live joint-angle feedback feel broken.",
-      "impact": "Achieved sub-200ms ROM breach alerts across 12 tracked joint landmarks with zero server-side vision calls, using fine-tuned Mistral-7B on 20K medical flashcards for domain-specific Q&A.",
+      "problem": "Post-surgical patients have no way to monitor recovery at home — clinicians are flying blind between appointments and discharge instructions get ignored.",
+      "approach": "Three specialized agents — Maya (VLM prescription parsing via Qwen2-VL), Rex (FDA drug interaction checks), Sol (plain-language synthesis) — as a LangGraph state machine on Modal GPU. Key call: pose estimation client-side via MediaPipe WASM, not server-side, eliminating the round-trip that would break live joint-angle feedback. Fine-tuned Mistral-7B on 20K medical flashcards.",
+      "impact": "Sub-200ms ROM breach alerts across 12 tracked joint landmarks with zero server-side vision calls.",
       "reflection": "The multi-agent debate pattern added architectural complexity without proportional user value at hackathon scope — in v2 I'd ship the single best agent first and add debate mode as an opt-in feature.",
       "tech": [
         "Next.js",
@@ -82,16 +85,18 @@
         "pipeline": "Discharge document upload → Qwen2-VL parsing → LangGraph routing → Maya (VLM prescription reading) → Rex (OpenFDA drug checks) → Sol (synthesis) → ElevenLabs TTS + MediaPipe live PT",
         "modelType": "transformer",
         "dataSource": "Hospital discharge PDFs, OpenFDA API, RxNorm drug interaction database, 20K medical flashcard fine-tuning dataset"
-      }
+      },
+      "diagram": "flowchart LR\n  DOC[\"Discharge PDF\"] --> QW[\"Qwen2-VL\\nParser\"]\n  QW --> LG[\"LangGraph\\nRouter\"]\n  LG --> MY[\"Maya\\nRx Reading\"]\n  LG --> RX[\"Rex\\nFDA Checks\"]\n  MY & RX --> SO[\"Sol\\nSynthesis\"]\n  SO --> TTS[\"ElevenLabs\\nTTS\"]\n  CAM[\"Webcam\"] --> MP[\"MediaPipe\\nWASM\"]\n  MP --> AL[\"ROM Alerts\\n< 200ms\"]"
     },
     {
       "id": "quill",
       "title": "Quill",
       "type": "standard",
+      "thumb": "assets/projects/quill.svg",
       "category": "ai",
       "problem": "Non-technical users can't query their own data without a SQL expert, and most text-to-SQL tools fail silently the moment a query needs a JOIN.",
-      "approach": "Built a self-correcting Critic agent that parses DuckDB error traces and retries with targeted fixes up to 3 times. Rather than requiring users to define relationships upfront, I implemented cross-table fuzzy matching that auto-detects foreign key relationships and injects JOIN hints. The deliberate choice was local-first with DuckDB — no cloud dependency, works on any CSV or Parquet file the user already has.",
-      "impact": "The self-correction loop catches and fixes the majority of SQL generation errors before they surface to the user, making multi-table queries work out of the box with zero schema configuration.",
+      "approach": "Self-correcting Critic agent parses DuckDB error traces and retries with targeted fixes, up to 3x. Cross-table fuzzy matching auto-detects foreign key relationships and injects JOIN hints — no schema definition required. Deliberately local-first: DuckDB, no cloud, works on any CSV or Parquet file.",
+      "impact": "Self-correction catches the majority of SQL errors before they surface, making multi-table queries work with zero schema configuration.",
       "reflection": "Fuzzy matching degrades on inconsistently named columns — in v2 I'd add a schema normalization pass before the first inference call so column names are standardized before any JOIN hint generation.",
       "tech": [
         "Python",
@@ -111,16 +116,18 @@
         "pipeline": "Natural language → SQL generation → DuckDB execution → Critic error analysis → Auto-correction (3x retry) → Result",
         "modelType": "transformer",
         "dataSource": "User-provided local CSV and Parquet files via DuckDB — no external data"
-      }
+      },
+      "diagram": "flowchart LR\n  NL[\"Natural Language\"] --> GEN[\"SQL Generator\"]\n  FI[\"CSV / Parquet\"] --> DB[(\"DuckDB\")]\n  GEN --> DB\n  DB -->|\"error\"| CR[\"Critic Agent\"]\n  CR -->|\"retry x3\"| GEN\n  DB -->|\"success\"| OUT[\"Result\"]"
     },
     {
       "id": "clai",
       "title": "CLAI",
       "type": "standard",
+      "thumb": "assets/projects/clai.svg",
       "category": "ai",
       "problem": "Students lose hours every week navigating Canvas LMS — checking deadlines, tracking grades, submitting work — through a UI that was never designed for speed.",
-      "approach": "Built a 3-agent LangGraph system that automates Canvas tasks through 15+ MCP tools. The key architectural call was adding FAISS semantic caching in front of every agent — repeated queries (the overwhelming majority of student interactions) return instantly without hitting the LLM at all. This made the system feel fast enough to actually use daily rather than just demo well.",
-      "impact": "Cache hits return in near-zero latency, effectively eliminating LLM cost and wait time for the most common query patterns students actually use.",
+      "approach": "3-agent LangGraph system automating Canvas via 15+ MCP tools. Key call: FAISS semantic cache in front of every agent — repeated queries return instantly without an LLM call. Most student interactions are repeats, so cache hits make it fast enough to use daily, not just demo.",
+      "impact": "Cache hits return in near-zero latency, eliminating LLM cost and wait time for the most common query patterns.",
       "reflection": "15 MCP tools made debugging agent routing failures hard — in v2 I'd introduce a tool registry with explicit capability tagging so the coordinator has a structured map to reason over, not a flat list.",
       "tech": [
         "Python",
@@ -141,16 +148,18 @@
         "pipeline": "User query → FAISS semantic cache → LangGraph routing → MCP tool execution → Canvas API → Response",
         "modelType": "transformer",
         "dataSource": "Canvas LMS API — user's own course data, assignments, and grades"
-      }
+      },
+      "diagram": "flowchart LR\n  Q[\"User Query\"] --> CA[\"FAISS Cache\"]\n  CA -->|\"cache hit\"| OUT[\"Response\"]\n  CA -->|\"cache miss\"| LG[\"LangGraph\\nRouter\"]\n  LG --> A1[\"Agent 1\"]\n  LG --> A2[\"Agent 2\"]\n  LG --> A3[\"Agent 3\"]\n  A1 & A2 & A3 --> MCP[\"MCP Tools\"]\n  MCP --> CV[\"Canvas API\"]\n  CV --> OUT"
     },
     {
       "id": "cpp-scheduler",
       "title": "C++ Multi-Agent Task Scheduler",
       "type": "standard",
+      "thumb": "assets/projects/cpp-scheduler.svg",
       "category": "systems",
       "problem": "Python-based AI agent pipelines are bottlenecked by the GIL — parallel agent execution is serialized at the orchestration layer no matter how many cores you have.",
-      "approach": "Moved the scheduler to C++17 and exposed it to Python via pybind11. Modeled agent workflows as DAGs and used Kahn's Algorithm for O(V+E) dependency resolution. The deliberate choice was a custom thread pool over std::async — bounded queues with condition variables gave precise backpressure control that std::async's unbounded task spawning couldn't provide, preventing OOM under load.",
-      "impact": "Parallelized Python AI agent execution across available cores while preventing OOM crashes under load through bounded queue backpressure — something the pure Python implementation couldn't guarantee.",
+      "approach": "C++17 scheduler exposed to Python via pybind11. Agent workflows modeled as DAGs resolved via Kahn's Algorithm (O(V+E)). Key call: custom thread pool over std::async — bounded queues with condition variables give precise backpressure that std::async's unbounded task spawning can't provide, preventing OOM under load.",
+      "impact": "True parallel Python AI agent execution across all cores, with bounded queue backpressure preventing OOM under load — guarantees the GIL-bound pure-Python implementation couldn't provide.",
       "reflection": "The pybind11 bridge added friction every time the Python-side agent interface changed — in v2 I'd define a stable ABI contract upfront and version it explicitly before writing any binding code.",
       "tech": [
         "C++17",
@@ -170,7 +179,8 @@
         "pipeline": "DAG definition → Kahn's topological sort → Thread pool dispatch → pybind11 Python agent execution → Result aggregation",
         "modelType": "N/A",
         "dataSource": "N/A"
-      }
+      },
+      "diagram": "flowchart TB\n  DEF[\"DAG Definition\"] --> KA[\"Kahn's Algorithm\\nO(V+E)\"]\n  KA --> TP[\"Thread Pool\\nbounded queue\"]\n  TP --> W1[\"Worker 1\"]\n  TP --> W2[\"Worker 2\"]\n  TP --> W3[\"Worker N\"]\n  W1 & W2 & W3 --> PB[\"pybind11\\nBridge\"]\n  PB --> PY[\"Python Agents\"]\n  PY --> AG[\"Result Aggregation\"]"
     }
   ],
   "experience": [

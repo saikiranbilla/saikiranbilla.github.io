@@ -1,9 +1,4 @@
-/* HERO ENTRANCE ANIMATIONS */
-
-/* Sidebar container fades up on load */
-.sidebar {
-    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-}
+/* Load keyframes — hero + nav use GSAP; keep utilities below */
 
 @keyframes fadeUp {
     from {
@@ -17,7 +12,7 @@
     }
 }
 
-/* Name character split — each .char animates in */
+/* Legacy .char — unused on new hero; harmless if present */
 .char {
     display: inline-block;
     animation: charIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -34,39 +29,6 @@
         opacity: 1;
         transform: translateY(0) rotateX(0);
     }
-}
-
-.name {
-    perspective: 400px;
-    display: block;
-}
-
-/* Title slides in from left */
-.title {
-    animation: slideInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Sanskrit tagline fade-in */
-.tagline-devanagari,
-.tagline-transliteration {
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
-}
-
-/* Bottom sidebar fades up */
-.sidebar__bottom {
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
 }
 
 /* Node graph dots scale in then pulse */
@@ -119,6 +81,19 @@
     }
 }
 
+/* Standard project card — accordion reveal stagger */
+@keyframes projectStdBlockIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* SCROLL REVEAL BASE STATES */
 .reveal {
     opacity: 0;
@@ -139,58 +114,16 @@
     transform: none !important;
 }
 
-/* CARD BORDER TRAIL */
-@property --border-angle {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
-}
-
-@keyframes border-spin {
-    to {
-        --border-angle: 360deg;
-    }
-}
-
-.project-card {
-    --border-angle: 0deg;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: conic-gradient(from var(--border-angle),
-            transparent 60%,
-            var(--accent) 80%,
-            transparent 100%);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    padding: 1px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.project-card:hover::before {
-    opacity: 1;
-    animation: border-spin 3s linear infinite;
-}
-
 /* NUMBER COUNTER */
 .count-up {
-    color: var(--accent);
+    color: var(--gold-mid);
     font-weight: 600;
     font-variant-numeric: tabular-nums;
     display: inline-block;
     min-width: 1ch;
 }
 
-/* REDUCED MOTION — kill everything */
+/* REDUCED MOTION — kill decorative animations */
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -205,9 +138,7 @@
         -webkit-mask-image: none !important;
     }
 
-    .reveal,
-    .tagline-devanagari,
-    .tagline-transliteration {
+    .reveal {
         opacity: 1 !important;
         transform: none !important;
     }
@@ -215,39 +146,6 @@
     .char {
         opacity: 1 !important;
         transform: none !important;
-    }
-}
-
-/* MOBILE — redefine entrance animations tailored for touch */
-@media (max-width: 768px) {
-    .char {
-        animation: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-        display: inline !important;
-    }
-
-    .name {
-        animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both !important;
-    }
-
-    .title {
-        animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both !important;
-    }
-
-    .tagline-devanagari,
-    .tagline-transliteration,
-    .tagline-group {
-        animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both !important;
-        opacity: 1;
-    }
-
-    nav {
-        animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
-    }
-
-    .sidebar__bottom {
-        animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
     }
 }
 

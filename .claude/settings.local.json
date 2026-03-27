@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(gstack)",
+      "Bash(B=~/.claude/skills/gstack/browse/dist/browse)",
+      "Bash(__NEW_LINE_e0bca1796a104dd1__ $B goto \"file:///C:/Users/sbill/Downloads/saikiranbilla.github.io/index.html\")",
+      "Bash($B js:*)"
+    ]
+  }
+}
