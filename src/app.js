@@ -66,10 +66,7 @@ export function render() {
           <p class="entry-meta">Python · FastAPI · DuckDB · React · SSE — <a href="https://github.com/saikiranbilla/quill" target="_blank" rel="noopener">code</a></p>
         </div>
 
-        <div class="entry">
-          <p class="entry-body"><span class="entry-title">C++ Multi-Agent Scheduler</span> — wrote this because Python's GIL was bottlenecking my agent pipelines. C++17 DAG scheduler exposed to Python via pybind11. Kahn's algorithm for topological ordering, custom thread pool with bounded queues for backpressure. True parallel execution.</p>
-          <p class="entry-meta">C++17 · Python · pybind11 — <a href="https://github.com/saikiranbilla" target="_blank" rel="noopener">code</a></p>
-        </div>
+
       </section>
 
       <!-- Education -->
