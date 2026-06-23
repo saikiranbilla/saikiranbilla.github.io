@@ -14,7 +14,7 @@ export function render() {
         <p class="status">📍 chicago, il</p>
 
         <div class="bio">
-          <p>I'm Sai. I'm a forward deployed engineer at Perficient. Previously, I went to UIUC and did my masters in Information Management. I like building things and I like talking to people — FDE lets me do both.</p>
+          <p>I'm Sai. I'm a forward deployed engineer. Previously, I went to UIUC and did my masters in Information Management. I like building things and I like talking to people — FDE lets me do both.</p>
           <p>Before this, I spent most of my time on multi-agent pipelines, RAG, and data engineering. A lot of my projects started as hackathons or class assignments that I couldn't stop working on. I'm happiest when I'm in a room with a customer figuring out what they actually need, then going back and building it.</p>
         </div>
 
