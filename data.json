@@ -1,12 +1,12 @@
 {
   "meta": {
     "name": "Sai Kiran Billa",
-    "title": "AI Software Engineer",
-    "tagline": "अनुगच्छतु प्रवाहः\nanugacchatu pravāhaḥ",
-    "about": "I build things — that's how I learn, how I think, and how I get better. Not by waiting until I'm ready. By starting, shipping, and figuring it out along the way. I'm drawn to hard problems at the intersection of AI and systems. If you're building something hard, I'd love to talk.",
-    "contact": "If something here made you stop scrolling, I'd genuinely like to talk. I'm not looking for just any role — I'm looking for the one where the problems are hard enough to be interesting.",
+    "title": "Forward Deployed Engineer",
+    "tagline": "अनुगच्छतु प्रवाहः\nlet the current carry you",
+    "about": "I build production AI systems — and I like watching people actually use them.",
+    "contact": "If something here made you stop scrolling, I'd like to talk.",
     "status": {
-      "text": "Graduating May 2026 · Open to new grad roles",
+      "text": "perficient · chicago",
       "active": true
     },
     "social": {
@@ -20,7 +20,6 @@
       "id": "cropmindai",
       "title": "CropMindAI",
       "type": "hero",
-      "image": "assets/projects/cropmindai.svg",
       "category": "ai",
       "problem": "When floods destroy crops, producers have 72 hours to file a federal insurance claim or lose coverage — manual adjusters take 3–5 business days, and a misrouted claim costs $18,000–$42,000 in lost indemnity.",
       "approach": "7-agent LangGraph pipeline — three perception agents (Claude Vision, Open-Meteo, soil moisture APIs) fan out concurrently into a deterministic FCIC flood classifier, a Spatial Agent computes contiguous flooded acreage via Haversine BFS, then a RAG agent retrieves matching policy clauses from pgvector. Key call: classifier is fully deterministic — no LLM, every routing decision maps to a specific FCIC handbook section and is auditable.",
@@ -55,7 +54,6 @@
       "id": "aura",
       "title": "Aura",
       "type": "standard",
-      "thumb": "assets/projects/aura.svg",
       "category": "ai",
       "problem": "Post-surgical patients have no way to monitor recovery at home — clinicians are flying blind between appointments and discharge instructions get ignored.",
       "approach": "Three specialized agents — Maya (VLM prescription parsing via Qwen2-VL), Rex (FDA drug interaction checks), Sol (plain-language synthesis) — as a LangGraph state machine on Modal GPU. Key call: pose estimation client-side via MediaPipe WASM, not server-side, eliminating the round-trip that would break live joint-angle feedback. Fine-tuned Mistral-7B on 20K medical flashcards.",
@@ -92,7 +90,6 @@
       "id": "quill",
       "title": "Quill",
       "type": "standard",
-      "thumb": "assets/projects/quill.svg",
       "category": "ai",
       "problem": "Non-technical users can't query their own data without a SQL expert, and most text-to-SQL tools fail silently the moment a query needs a JOIN.",
       "approach": "Self-correcting Critic agent parses DuckDB error traces and retries with targeted fixes, up to 3x. Cross-table fuzzy matching auto-detects foreign key relationships and injects JOIN hints — no schema definition required. Deliberately local-first: DuckDB, no cloud, works on any CSV or Parquet file.",
@@ -123,7 +120,6 @@
       "id": "clai",
       "title": "CLAI",
       "type": "standard",
-      "thumb": "assets/projects/clai.svg",
       "category": "ai",
       "problem": "Students lose hours every week navigating Canvas LMS — checking deadlines, tracking grades, submitting work — through a UI that was never designed for speed.",
       "approach": "3-agent LangGraph system automating Canvas via 15+ MCP tools. Key call: FAISS semantic cache in front of every agent — repeated queries return instantly without an LLM call. Most student interactions are repeats, so cache hits make it fast enough to use daily, not just demo.",
@@ -155,7 +151,6 @@
       "id": "cpp-scheduler",
       "title": "C++ Multi-Agent Task Scheduler",
       "type": "standard",
-      "thumb": "assets/projects/cpp-scheduler.svg",
       "category": "systems",
       "problem": "Python-based AI agent pipelines are bottlenecked by the GIL — parallel agent execution is serialized at the orchestration layer no matter how many cores you have.",
       "approach": "C++17 scheduler exposed to Python via pybind11. Agent workflows modeled as DAGs resolved via Kahn's Algorithm (O(V+E)). Key call: custom thread pool over std::async — bounded queues with condition variables give precise backpressure that std::async's unbounded task spawning can't provide, preventing OOM under load.",
@@ -185,46 +180,32 @@
   ],
   "experience": [
     {
-      "role": "Technical Consultant (AI Software Engineer)",
+      "role": "Technical Consultant",
       "company": "Business Intelligence Group, UIUC",
-      "period": "Jan 2026 – Present",
-      "description": "Building a full-stack RAG chatbot for aviation staff using Next.js and Vercel Postgres. Focused on streaming architecture, offline resilience, and production observability.",
-      "tech": [
-        "Next.js",
-        "Drizzle ORM",
-        "Vercel Postgres",
-        "SSE",
-        "IndexedDB",
-        "Sentry",
-        "OpenTelemetry"
-      ]
+      "period": "Jan 2026 – May 2026",
+      "description": "Built Compass — a production RAG chatbot for aviation staff, shipped to 200+ real users on GCP.",
+      "tech": []
     },
     {
-      "role": "Data Analyst Intern",
+      "role": "Data Analyst (Student Worker)",
       "company": "University of Illinois Foundation",
-      "period": "May 2025 – Present",
-      "description": "Building SQL infrastructure and Power BI dashboards to support fundraising campaigns across 37 campus units, working with 100K+ donor records.",
-      "tech": [
-        "SQL Server",
-        "Power BI",
-        "DAX",
-        "Blackbaud CRM",
-        "Smartsheet"
-      ]
+      "period": "May 2025 – May 2026",
+      "description": "Built internal analytics tools and reporting systems for fundraising operations.",
+      "tech": []
     }
   ],
   "education": [
     {
-      "degree": "M.S. Information Management",
+      "degree": "MS Information Management",
       "school": "University of Illinois Urbana-Champaign",
-      "year": "2026",
-      "detail": "GPA 3.97 · Applied ML, Statistical Learning, Methods of Data Science"
+      "year": "2024 – 2026",
+      "detail": "GPA 3.97 · Focus: ML systems, data engineering, AI applications"
     },
     {
       "degree": "B.Tech Computer Science",
       "school": "Gokaraju Rangaraju Institute of Engineering & Technology",
-      "year": "2024",
-      "detail": "GPA 3.7 · Data Structures & Algorithms, OOP, Operating Systems"
+      "year": "2020 – 2024",
+      "detail": ""
     }
   ],
   "journal": [
